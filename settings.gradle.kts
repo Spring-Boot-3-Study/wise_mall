@@ -1,1 +1,1 @@
-rootProject.name = "mall"
+rootProject.name = "wise_mall"

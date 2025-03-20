@@ -1,4 +1,4 @@
-package com.wise.mall.product.adapter.`in`
+package com.wise.mall.product.adapter.`in`.web
 
 import com.wise.mall.global.response.Response
 

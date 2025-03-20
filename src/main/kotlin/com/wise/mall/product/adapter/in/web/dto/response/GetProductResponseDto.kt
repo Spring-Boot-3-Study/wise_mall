@@ -1,4 +1,4 @@
-package com.wise.mall.product.adapter.`in`.dto.response
+package com.wise.mall.product.adapter.`in`.web.dto.response
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import java.time.LocalDateTime

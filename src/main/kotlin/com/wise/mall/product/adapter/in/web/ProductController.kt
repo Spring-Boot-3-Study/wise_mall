@@ -1,8 +1,8 @@
-package com.wise.mall.product.adapter.`in`
+package com.wise.mall.product.adapter.`in`.web
 
 import com.wise.mall.global.response.ResponseDto
-import com.wise.mall.product.adapter.`in`.dto.request.CreateProductRequestDto
-import com.wise.mall.product.adapter.`in`.dto.response.GetProductResponseDto
+import com.wise.mall.product.adapter.`in`.web.dto.request.CreateProductRequestDto
+import com.wise.mall.product.adapter.`in`.web.dto.response.GetProductResponseDto
 import com.wise.mall.product.application.port.`in`.ApprovalProductUseCase
 import com.wise.mall.product.application.port.`in`.ProductUseCase
 import com.wise.mall.product.application.port.`in`.command.*

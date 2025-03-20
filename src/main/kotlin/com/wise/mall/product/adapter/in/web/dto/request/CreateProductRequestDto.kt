@@ -1,4 +1,4 @@
-package com.wise.mall.product.adapter.`in`.dto.request
+package com.wise.mall.product.adapter.`in`.web.dto.request
 
 data class CreateProductRequestDto(
 
