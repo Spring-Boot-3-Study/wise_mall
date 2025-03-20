@@ -1,11 +1,11 @@
 package com.wise.mall.global.response
 
-import org.springframework.http.HttpStatus
-import java.util.Collections
+import java.util.*
 
+/**
+ * Adapter 응답 공통 코드
+ */
 interface Response {
-
-    fun getStatus(): HttpStatus
 
     fun getCode(): Int
 

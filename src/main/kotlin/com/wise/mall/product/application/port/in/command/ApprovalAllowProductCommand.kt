@@ -1,4 +1,6 @@
 package com.wise.mall.product.application.port.`in`.command
 
-class ApprovalAllowProductCommand {
-}
+data class ApprovalAllowProductCommand(
+
+    val id: Long,
+)

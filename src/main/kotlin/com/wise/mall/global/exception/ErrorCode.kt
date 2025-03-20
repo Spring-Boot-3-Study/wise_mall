@@ -1,6 +1,9 @@
 package com.wise.mall.global.exception
 
-interface ApplicationError {
+/**
+ * Application 공통 예외 코드
+ */
+interface ErrorCode {
 
     fun getCode(): Int
 

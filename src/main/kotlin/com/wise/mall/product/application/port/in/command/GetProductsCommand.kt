@@ -1,4 +1,8 @@
 package com.wise.mall.product.application.port.`in`.command
 
-class GetProductsCommand {
-}
+data class GetProductsCommand(
+
+    val page: Int,
+
+    val size: Int,
+)

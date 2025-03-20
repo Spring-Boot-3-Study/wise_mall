@@ -1,4 +1,8 @@
 package com.wise.mall.product.application.port.`in`.command
 
-class CreateProductCommand {
-}
+data class CreateProductCommand(
+
+    val name: String,
+
+    val price: Int,
+)

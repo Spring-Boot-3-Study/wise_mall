@@ -12,15 +12,20 @@ class ProductEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    val id: Long,
+    val id: Long? = null,
 
     @Column(name = "name")
-    val name: String,
+    var name: String,
 
     @Column(name = "price")
-    val price: Int,
+    var price: Int,
 
     @Column(name = "state")
-    val state: Int,
+    var state: Int,
 
-) : BaseTimeEntity()
+) : BaseTimeEntity() {
+
+    fun updateState(state: Int) {
+        this.state = state
+    }
+}
