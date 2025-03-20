@@ -25,6 +25,12 @@ class ProductEntity(
 
 ) : BaseTimeEntity() {
 
+    /**
+     * 승인 여부 플래그 변경
+     * 0  : 승인 대기
+     * 1  : 승인 완료
+     * -1 : 승인 거절
+     */
     fun updateState(state: Int) {
         this.state = state
     }
