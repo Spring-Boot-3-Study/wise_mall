@@ -4,15 +4,29 @@ import java.time.LocalDateTime
 
 data class Product (
 
-    val id: Long,
+    var id: Long? = null,
 
-    val name: String,
+    var name: String,
 
-    val price: Int,
+    var price: Int,
 
-    val state: Int,
+    var state: Int,
 
-    val createdAt: LocalDateTime,
+    var createdAt: LocalDateTime? = null,
 
-    val updatedAt: LocalDateTime,
-)
+    var updatedAt: LocalDateTime? = null,
+) {
+    /**
+     * 상품 등록 허가
+     */
+    fun approvalAllow() {
+        this.state = 1
+    }
+
+    /**
+     * 상품 등록 거부
+     */
+    fun approvalDeny() {
+        this.state = -1
+    }
+}

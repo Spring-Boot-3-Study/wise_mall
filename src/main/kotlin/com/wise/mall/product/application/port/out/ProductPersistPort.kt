@@ -1,11 +1,10 @@
 package com.wise.mall.product.application.port.out
 
-import com.wise.mall.product.application.port.out.vo.CreateProductVo
-import com.wise.mall.product.application.port.out.vo.ProductVo
+import com.wise.mall.product.application.domain.model.Product
 
 interface ProductPersistPort {
 
-    fun createProduct(createProductVo: CreateProductVo)
+    fun createProduct(product: Product)
 
-    fun updateProduct(productVo: ProductVo)
+    fun updateProduct(product: Product)
 }

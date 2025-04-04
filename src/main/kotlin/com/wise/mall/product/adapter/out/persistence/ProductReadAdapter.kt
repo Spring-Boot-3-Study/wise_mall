@@ -2,8 +2,8 @@ package com.wise.mall.product.adapter.out.persistence
 
 import com.wise.mall.product.adapter.out.persistence.exception.NotExistsProductEntityException
 import com.wise.mall.product.adapter.out.persistence.repository.ProductRepository
+import com.wise.mall.product.application.domain.model.Product
 import com.wise.mall.product.application.port.out.ProductReadPort
-import com.wise.mall.product.application.port.out.vo.ProductVo
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
@@ -15,8 +15,8 @@ class ProductReadAdapter (
 ) : ProductReadPort {
 
     @Transactional(readOnly = true)
-    override fun getProduct(id: Long): ProductVo = productRepository.findByIdOrNull(id)?.let { productEntity ->
-        ProductVo(
+    override fun getProduct(id: Long): Product = productRepository.findByIdOrNull(id)?.let { productEntity ->
+        Product(
             id = productEntity.id!!,
             name = productEntity.name,
             price = productEntity.price,
@@ -28,12 +28,12 @@ class ProductReadAdapter (
     } ?: throw NotExistsProductEntityException(id = id)
 
     @Transactional(readOnly = true)
-    override fun getProducts(page: Int, size: Int): List<ProductVo> {
+    override fun getProducts(page: Int, size: Int): List<Product> {
 
         val pageable = PageRequest.of(page - 1, size)
 
         return productRepository.findAll(pageable).content.map { productEntity ->
-            ProductVo(
+            Product(
                 id = productEntity.id!!,
                 name = productEntity.name,
                 price = productEntity.price,

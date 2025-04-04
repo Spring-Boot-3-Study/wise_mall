@@ -3,9 +3,8 @@ package com.wise.mall.product.adapter.out.persistence
 import com.wise.mall.product.adapter.out.persistence.entity.ProductEntity
 import com.wise.mall.product.adapter.out.persistence.exception.NotExistsProductEntityException
 import com.wise.mall.product.adapter.out.persistence.repository.ProductRepository
+import com.wise.mall.product.application.domain.model.Product
 import com.wise.mall.product.application.port.out.ProductPersistPort
-import com.wise.mall.product.application.port.out.vo.CreateProductVo
-import com.wise.mall.product.application.port.out.vo.ProductVo
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
@@ -16,23 +15,23 @@ class ProductPersistAdapter (
 ) : ProductPersistPort {
 
     @Transactional
-    override fun createProduct(createProductVo: CreateProductVo) {
+    override fun createProduct(product: Product) {
         productRepository.save(
             ProductEntity(
-                name = createProductVo.name,
-                price = createProductVo.price,
+                name = product.name,
+                price = product.price,
                 state = 0,
             )
         )
     }
 
     @Transactional
-    override fun updateProduct(productVo: ProductVo) {
+    override fun updateProduct(product: Product) {
 
-        val productEntity = productRepository.findByIdOrNull(productVo.id)
-            ?: throw NotExistsProductEntityException(id = productVo.id)
+        val productEntity = productRepository.findByIdOrNull(product.id)
+            ?: throw NotExistsProductEntityException(id = product.id ?: -1)
 
-        productEntity.updateState(productVo.state)
+        productEntity.updateState(product.state)
 
         productRepository.save(productEntity)
     }
