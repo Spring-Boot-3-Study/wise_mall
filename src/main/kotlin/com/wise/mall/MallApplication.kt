@@ -1,4 +1,4 @@
-package com.study.mall.mall
+package com.wise.mall
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
