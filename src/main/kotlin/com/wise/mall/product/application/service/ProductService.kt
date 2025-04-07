@@ -8,6 +8,8 @@ import com.wise.mall.product.application.port.`in`.ProductUseCase
 import com.wise.mall.product.application.port.`in`.command.*
 import com.wise.mall.product.application.port.out.ProductPersistPort
 import com.wise.mall.product.application.port.out.ProductReadPort
+import com.wise.mall.product.application.vo.CreateProductVo
+import com.wise.mall.product.application.vo.UpdateProductVo
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -26,7 +28,7 @@ class ProductService (
         }
 
         productPersistPort.createProduct(
-            product = Product(
+            createProductVo = CreateProductVo(
                 name = command.name,
                 price = command.price,
                 state = 0,
@@ -54,13 +56,11 @@ class ProductService (
 
         // 거절 상태가 아닌 경우
         if (product.state != -1) {
-            product.id?.let { id ->
-                throw InvalidStateException(id = id)
-            }
+            throw InvalidStateException(id = product.id)
         }
 
         productPersistPort.updateProduct(
-            product = product
+            updateProductVo = UpdateProductVo.of(product)
         )
     }
 
@@ -72,7 +72,7 @@ class ProductService (
         product.approvalAllow()
 
         productPersistPort.updateProduct(
-            product = product
+            updateProductVo = UpdateProductVo.of(product)
         )
     }
 
@@ -84,7 +84,7 @@ class ProductService (
         product.approvalDeny()
 
         productPersistPort.updateProduct(
-            product = product
+            updateProductVo = UpdateProductVo.of(product)
         )
     }
 }

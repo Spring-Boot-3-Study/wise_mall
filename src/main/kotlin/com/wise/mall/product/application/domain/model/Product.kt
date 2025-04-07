@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 data class Product (
 
-    var id: Long? = null,
+    val id: Long,
 
     var name: String,
 
@@ -12,9 +12,9 @@ data class Product (
 
     var state: Int,
 
-    var createdAt: LocalDateTime? = null,
+    val createdAt: LocalDateTime,
 
-    var updatedAt: LocalDateTime? = null,
+    val updatedAt: LocalDateTime,
 ) {
     /**
      * 상품 등록 허가
