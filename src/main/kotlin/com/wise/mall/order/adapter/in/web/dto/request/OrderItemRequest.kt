@@ -1,10 +1,10 @@
 package com.wise.mall.order.adapter.`in`.web.dto.request
 
-import com.wise.mall.order.application.port.`in`.command.OrderItemCreateCommand
+import com.wise.mall.order.application.command.OrderItemCreateCommand
 
-data class OrderItemRequest( val productId: String,
-                             val quantity: Int,
-                             val subtotal: Int,
+data class OrderItemRequest(
+    val productId: Long,
+    val quantity: Int,
 ) {
 
     fun toCommand(): OrderItemCreateCommand {

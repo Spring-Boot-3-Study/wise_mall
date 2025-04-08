@@ -1,6 +1,6 @@
 package com.wise.mall.order.application.port.`in`
 
-import com.wise.mall.order.application.port.`in`.command.OrderCreateCommand
+import com.wise.mall.order.application.command.OrderCreateCommand
 
 
 interface OrderCreateUseCase {

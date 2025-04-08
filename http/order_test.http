@@ -1,0 +1,22 @@
+## order API Test
+
+### 주문등록
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "accountId": "jinho",
+  "orderItem": [
+    {
+      "productId": 1,
+      "quantity": 1
+    }
+  ],
+  "address": {
+    "name": "한진호",
+    "phoneNumber": "01011111111",
+    "postalCode": "13493",
+    "address1": "경기도 성남시 분당구 대왕판교로644번길 49",
+    "address2": "DTC타워 5층 와이즈넛"
+  }
+}

@@ -1,9 +1,9 @@
-package com.wise.mall.order.application.port.`in`.command
+package com.wise.mall.order.application.command
 
 import com.wise.mall.global.vo.Address
 
 data class OrderCreateCommand(
-    val customerId: String,
+    val accountId: String,
     val orderItem: List<OrderItemCreateCommand>,
     val address: Address,
 ) {

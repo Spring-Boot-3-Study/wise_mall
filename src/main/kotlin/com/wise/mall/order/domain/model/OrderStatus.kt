@@ -1,4 +1,4 @@
-package com.wise.mall.order.application.domain
+package com.wise.mall.order.domain.model
 
 enum class OrderStatus(val description: String) {
     PENDING("결제 대기"),
