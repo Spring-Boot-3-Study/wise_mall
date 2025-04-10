@@ -10,16 +10,19 @@ import com.wise.mall.account.application.port.`in`.command.LogoutCommand
 import com.wise.mall.account.application.port.`in`.command.ReissueCommand
 import com.wise.mall.account.application.port.out.AccountPersistPort
 import com.wise.mall.account.application.port.out.AccountReadPort
+import com.wise.mall.account.application.port.out.BlackAccessTokenPersistPort
 import com.wise.mall.account.application.provider.TokenProvider
 import com.wise.mall.account.application.vo.CreateAccountVo
 import com.wise.mall.account.application.vo.TokenVo
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.time.LocalDateTime
 
 @Service
 class AccountService(
     private val accountPersistPort: AccountPersistPort,
     private val accountReadPort: AccountReadPort,
+    private val blackAccessTokenPersistPort: BlackAccessTokenPersistPort,
     private val tokenProvider: TokenProvider,
 ) : AccountAuthUseCase {
 
@@ -81,6 +84,17 @@ class AccountService(
 
         // 로그 아웃 (리프래시 토큰 삭제)
         account.logout()
+
+        val expiredAt = tokenProvider.getExpiredAt(token = command.accessToken)
+
+        // 엑세스 토큰이 만료되지 않은 경우 블랙 리스트 등록
+        if (expiredAt.isAfter(LocalDateTime.now())) {
+            blackAccessTokenPersistPort.createBlackAccessToken(
+                accountId = account.accountId,
+                accessToken = command.accessToken,
+                expiredAt = expiredAt
+            )
+        }
 
         // 회원 정보 수정
         accountPersistPort.updateAccount(account = account)

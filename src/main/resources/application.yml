@@ -8,5 +8,5 @@ spring:
 jwt:
   secret: 526753878GQ6+556A586E327kE5D+hlIlStxSSm404E637z32MPi+W7O53ZsJa/0XdFG+MIA9235
   expiration:
-    accessToken: 5000
-    refreshToken: 360000
+    accessToken: 60
+    refreshToken: 720

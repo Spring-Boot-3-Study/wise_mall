@@ -25,6 +25,9 @@ class AccountController(
     private val accountAuthUseCase: AccountAuthUseCase,
 ) {
 
+    /**
+     * 회원 가입 앤드포인트
+     */
     @PostMapping("/join")
     fun join(@RequestBody joinRequestDto: JoinRequestDto): ResponseEntity<ResponseDto<Map<String, Any>>> {
 
@@ -41,6 +44,9 @@ class AccountController(
             .body(AccountAdapterResponse.ACCOUNT_JOIN_SUCCESS.toResponseDto())
     }
 
+    /**
+     * 로그인 앤드포인트
+     */
     @PostMapping("/login")
     fun login(@RequestBody loginRequestDto: LoginRequestDto): ResponseEntity<ResponseDto<LoginResponseDto>> {
 
@@ -61,6 +67,9 @@ class AccountController(
             .body(AccountAdapterResponse.ACCOUNT_LOGIN_SUCCESS.toResponseDto(loginResponseDto))
     }
 
+    /**
+     * 로그아웃 앤드포인트
+     */
     @PostMapping("/logout")
     fun logout(@RequestBody logoutRequestDto: LogoutRequestDto): ResponseEntity<ResponseDto<Map<String, Any>>> {
         
@@ -78,6 +87,9 @@ class AccountController(
             .body(AccountAdapterResponse.ACCOUNT_LOGOUT_SUCCESS.toResponseDto())
     }
 
+    /**
+     * 토큰 재발행 앤드포인트
+     */
     @PostMapping("/reissue")
     fun reissue(@RequestBody reissueRequestDto: ReissueRequestDto): ResponseEntity<ResponseDto<ReissueResponseDto>> {
 
