@@ -1,23 +1,30 @@
 package com.wise.mall.delivery.application.domain.model
 
-import java.time.LocalDate
+import com.wise.mall.delivery.adapter.out.persistence.entity.DeliveryEntity
 import java.time.LocalDateTime
 
+
 class Delivery(
-    val deliveryId: String,
+    val deliveryId: Long,
+
     val orderId: String,
-    private var courier: String?,
-    private var trackNumber: String?,
-    val createdAt: LocalDateTime,
-    private var updatedAt: LocalDateTime,
+
+    private var courier: String,
+
+    private var trackNumber: String,
+
+    val createdAt: LocalDateTime?,
+
+    private var updatedAt: LocalDateTime?,
+
     private var status: DeliveryStatus = DeliveryStatus.READY
 ){
     fun updateStatus(newStatus: DeliveryStatus) {
         if (!canTransitionTo(newStatus)) {
             throw IllegalStateException("현재 상태에서 해당 상태로 변경 불가: ${this.status} → $newStatus")
         }
-        this.status = newStatus
-        this.updatedAt = LocalDateTime.now()
+        status = newStatus
+        updatedAt = LocalDateTime.now()
     }
 
     //상태 변경 제어
@@ -25,20 +32,29 @@ class Delivery(
         return when (status) {
             DeliveryStatus.READY -> newStatus == DeliveryStatus.SHIPPING || newStatus == DeliveryStatus.CANCELLED
             DeliveryStatus.SHIPPING -> newStatus == DeliveryStatus.COMPLETED || newStatus == DeliveryStatus.RETURNED
-            DeliveryStatus.COMPLETED, DeliveryStatus.CANCELLED, DeliveryStatus.RETURNED, -> false
+            DeliveryStatus.COMPLETED, DeliveryStatus.CANCELLED, DeliveryStatus.RETURNED -> false
         }
     }
-
-    fun assignTrackingNumber(trackingNumber: String) {
-        if (this.trackNumber != null) {
-            throw IllegalStateException("이미 송장 번호가 등록되어 있습니다")
-        }
+    
+    /*택배 접수 분리시 사용*/
+    fun assignTrackingNumber(trackingNumber: String, courier: String) {
+        this.courier = courier
         this.trackNumber = trackingNumber
-        this.updatedAt = LocalDateTime.now()
+        updateStatus(DeliveryStatus.SHIPPING)
+    }
+
+    fun toEntity(): DeliveryEntity {
+        return DeliveryEntity(
+            deliveryId = this.deliveryId,
+            orderId = this.orderId,
+            courier = this.getCourier(),
+            trackNumber = this.getTrackingNumber(),
+            status = this.getStatus(),
+        )
     }
 
     fun getStatus(): DeliveryStatus = this.status
-    fun getTrackingNumber(): String? = this.trackNumber
-    fun getCourier(): String? = this.courier
-    fun getUpdatedAt(): LocalDateTime = this.updatedAt
+    fun getTrackingNumber(): String = this.trackNumber
+    fun getCourier(): String = this.courier
+    fun getUpdatedAt(): LocalDateTime? = this.updatedAt
 }

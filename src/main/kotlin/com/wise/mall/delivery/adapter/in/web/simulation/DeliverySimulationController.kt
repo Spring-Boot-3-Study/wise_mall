@@ -1,4 +1,4 @@
-package com.wise.mall.delivery.adapter.`in`.web;
+package com.wise.mall.delivery.adapter.`in`.web.simulation;
 
 import com.wise.mall.delivery.adapter.`in`.web.dto.request.simulation.RegistShippingRequestDto
 import com.wise.mall.delivery.adapter.`in`.web.dto.request.simulation.UpdateShippingRequestDto
