@@ -7,4 +7,6 @@ interface DeliveryPersistPort {
     fun registerDelivery(delivery: Delivery)
 
     fun getDelivery(deliveryId: Long): Delivery
+
+    fun updateDeliveryStatus(delivery: Delivery)
 }

@@ -36,5 +36,6 @@ class DeliveryService(private val deliveryPersistPort: DeliveryPersistPort) : De
     override fun updateDeliveryStatus(command: UpdateDeliveryStatusCommand) {
         val delivery = getDelivery(command.deliveryId)
         delivery.updateStatus(command.status)
+        deliveryPersistPort.updateDeliveryStatus(delivery)
     }
 }

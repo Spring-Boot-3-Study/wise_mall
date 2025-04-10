@@ -20,4 +20,8 @@ class DeliveryPersistAdapter(
             .orElseThrow { IllegalArgumentException("해당 배송이 존재하지 않습니다.") }
         return entity.toDomain()
     }
+
+    override fun updateDeliveryStatus(delivery: Delivery) {
+        deliveryRepository.save(delivery.toEntity())
+    }
 }
