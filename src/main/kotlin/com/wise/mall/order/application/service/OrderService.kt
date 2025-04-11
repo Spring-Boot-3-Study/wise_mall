@@ -1,11 +1,10 @@
 package com.wise.mall.order.application.service
 
-import com.wise.mall.order.domain.model.Order
-import com.wise.mall.order.domain.model.OrderItem
-import com.wise.mall.order.domain.model.OrderStatus
-import com.wise.mall.order.application.port.`in`.OrderCreateUseCase
 import com.wise.mall.order.application.command.OrderCreateCommand
+import com.wise.mall.order.application.port.`in`.OrderCreateUseCase
 import com.wise.mall.order.application.port.out.OrderPersistPort
+import com.wise.mall.order.domain.vo.OrderItemToCreate
+import com.wise.mall.order.domain.vo.OrderToCreate
 import org.springframework.stereotype.Service
 
 @Service
@@ -14,23 +13,16 @@ class OrderService(
 ): OrderCreateUseCase {
     override fun createOrder(orderCreateCommand: OrderCreateCommand) {
 
-        // product 조회
 
-
-
-        val orderItems =
-            orderCreateCommand.orderItem.map {
-                OrderItem(
-
-                )
-            }.toList()
-
-
-        val order = Order(
+        val order = OrderToCreate(
             accountId = orderCreateCommand.accountId,
-            status = OrderStatus.PENDING,
-            address = orderCreateCommand.address,
+            orderItem = orderCreateCommand.orderItem.map { OrderItemToCreate(
+                    productId = it.productId,
+                    quantity = it.quantity
+                ) }.toList(),
+            address = orderCreateCommand.address
         )
+
         orderPersistPort.createOrder(order)
 
     }

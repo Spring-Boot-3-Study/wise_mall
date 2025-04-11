@@ -14,16 +14,11 @@ class OrderEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val orderId: Long? = null,
     val accountId: String,
+
+    @Embedded
     val address: Address,
 
-//    @OneToMany(
-//        mappedBy = "order",
-//        cascade = [CascadeType.ALL],
-//        orphanRemoval = true
-//    )
-//    val orderItems: List<OrderItemEntity>,
-
-    val totalPrice: Int,
+    var totalPrice: Int,
 
     @Enumerated(EnumType.STRING)
     val status: OrderStatus
