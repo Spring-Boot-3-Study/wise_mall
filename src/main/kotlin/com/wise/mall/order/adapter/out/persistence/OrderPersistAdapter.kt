@@ -39,6 +39,7 @@ class OrderPersistAdapter(
             total += subtotal
 
             return@map OrderItemEntity(
+                orderItemId = null,
                 order = saved,
                 product = product,
                 price = product.price,

@@ -5,8 +5,8 @@ POST http://localhost:8080/product
 Content-Type: application/json
 
 {
-  "name": "MacBook Pro",
-  "price": 2390000
+  "name": "MacBook air",
+  "price": 1390000
 }
 
 ### 상품리스트 조회
@@ -18,7 +18,7 @@ GET http://localhost:8080/product/1
 #상품 거절됨, 승인대기 상태가 확인되어야 할 듯
 
 ### 상품 승인
-PUT http://localhost:8080/product/approve/allow?id=1
+PUT http://localhost:8080/product/approve/allow?id=2
 
 ### 상품 거절
 PUT http://localhost:8080/product/approve/deny?id=2

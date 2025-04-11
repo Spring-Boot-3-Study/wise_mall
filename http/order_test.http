@@ -5,18 +5,22 @@ POST http://localhost:8080/api/orders
 Content-Type: application/json
 
 {
-  "accountId": "jinho",
-  "orderItem": [
-    {
-      "productId": 1,
-      "quantity": 1
+    "accountId" : "jinho",
+    "orderItem" : [
+        {
+            "productId": 1,
+            "quantity": 1
+        },
+        {
+            "productId": 2,
+            "quantity": 3
+        }
+    ],
+    "address": {
+        "name": "한진호",
+        "phoneNumber": "01026040547",
+        "postalCode": "123456",
+        "address1": "경기도 성남시",
+        "address2": "와이즈넛"
     }
-  ],
-  "address": {
-    "name": "한진호",
-    "phoneNumber": "01011111111",
-    "postalCode": "13493",
-    "address1": "경기도 성남시 분당구 대왕판교로644번길 49",
-    "address2": "DTC타워 5층 와이즈넛"
-  }
 }
