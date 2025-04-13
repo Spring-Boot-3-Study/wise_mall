@@ -1,19 +1,19 @@
 package com.wise.mall.order.adapter.out.persistence
 
+import com.wise.mall.order.adapter.out.OrderItemMapper
 import com.wise.mall.order.adapter.out.OrderMapper
-import com.wise.mall.order.adapter.out.persistence.entity.OrderEntity
 import com.wise.mall.order.adapter.out.persistence.entity.OrderItemEntity
 import com.wise.mall.order.adapter.out.persistence.repository.OrderItemRepository
 import com.wise.mall.order.adapter.out.persistence.repository.OrderRepository
-import com.wise.mall.order.domain.model.Order
 import com.wise.mall.order.application.port.out.OrderPersistPort
+import com.wise.mall.order.domain.exception.OrderNotFoundException
+import com.wise.mall.order.domain.model.Order
 import com.wise.mall.order.domain.model.OrderItem
-import com.wise.mall.order.domain.model.OrderStatus
-import com.wise.mall.order.domain.vo.OrderItemToCreate
 import com.wise.mall.order.domain.vo.OrderToCreate
 import com.wise.mall.product.adapter.out.persistence.repository.ProductRepository
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Component
+import kotlin.jvm.optionals.getOrElse
 import kotlin.jvm.optionals.getOrNull
 
 @Component
@@ -22,6 +22,7 @@ class OrderPersistAdapter(
     private val orderItemRepository: OrderItemRepository,
     private val productRepository: ProductRepository,
     private val orderMapper: OrderMapper,
+    private val orderItemMapper: OrderItemMapper
 ): OrderPersistPort {
 
     @Transactional
@@ -53,15 +54,14 @@ class OrderPersistAdapter(
         return orderMapper.toDomain(saved)
     }
 
-    override fun createOrderItem(order: OrderItemToCreate) {
-        TODO("Not yet implemented")
+    override fun getOrderById(orderId: Long): Order {
+        val order = orderRepository.findById(orderId).getOrElse { throw OrderNotFoundException(orderId) }
+        return orderMapper.toDomain(order)
     }
 
-    override fun saveOrderItems(items: List<OrderItem>) {
-        TODO("Not yet implemented")
+    override fun getOrderItemsByOrderId(orderId: Long): List<OrderItem> {
+        return orderItemRepository.findByOrderId(orderId).map { orderItemMapper.toDomain(it) }
     }
 
-    override fun retrieveItems(orderItems: List<OrderItem>): List<OrderItem> {
-        TODO("Not yet implemented")
-    }
+
 }

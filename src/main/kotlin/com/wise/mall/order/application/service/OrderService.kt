@@ -1,7 +1,8 @@
 package com.wise.mall.order.application.service
 
+import com.wise.mall.order.adapter.`in`.web.dto.response.OrderDetailsResponse
 import com.wise.mall.order.application.command.OrderCreateCommand
-import com.wise.mall.order.application.port.`in`.OrderCreateUseCase
+import com.wise.mall.order.application.port.`in`.OrderUseCase
 import com.wise.mall.order.application.port.out.OrderPersistPort
 import com.wise.mall.order.domain.vo.OrderItemToCreate
 import com.wise.mall.order.domain.vo.OrderToCreate
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service
 @Service
 class OrderService(
     private val orderPersistPort: OrderPersistPort,
-): OrderCreateUseCase {
+): OrderUseCase {
     override fun createOrder(orderCreateCommand: OrderCreateCommand) {
 
 
@@ -25,6 +26,19 @@ class OrderService(
 
         orderPersistPort.createOrder(order)
 
+    }
+
+    override fun getOrderDetails(orderId: Long): OrderDetailsResponse {
+        val order = orderPersistPort.getOrderById(orderId)
+        val orderItems = orderPersistPort.getOrderItemsByOrderId(orderId)
+        return OrderDetailsResponse(
+            orderId = order.orderId,
+            accountId = order.accountId,
+            address = order.address,
+            status = order.status,
+            orderItems = orderItems,
+            totalPrice = order.totalPrice,
+        )
     }
 
 }

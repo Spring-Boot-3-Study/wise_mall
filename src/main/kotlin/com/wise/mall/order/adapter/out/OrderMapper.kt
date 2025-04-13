@@ -11,7 +11,7 @@ class OrderMapper {
 
     fun toDomain(orderEntity: OrderEntity): Order {
         return Order(
-            orderId = orderEntity.orderId!!,
+            orderId = orderEntity.id!!,
             address = orderEntity.address,
             status = orderEntity.status,
             accountId = orderEntity.accountId,

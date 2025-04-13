@@ -12,7 +12,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 class OrderEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val orderId: Long? = null,
+    val id: Long? = null,
     val accountId: String,
 
     @Embedded
