@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service
 class OrderService(
     private val orderPersistPort: OrderPersistPort,
 ): OrderUseCase {
-    override fun createOrder(orderCreateCommand: OrderCreateCommand) {
+    override fun createOrder(orderCreateCommand: OrderCreateCommand):OrderDetailsResponse {
 
 
-        val order = OrderToCreate(
+        val orderDto = OrderToCreate(
             accountId = orderCreateCommand.accountId,
             orderItem = orderCreateCommand.orderItem.map { OrderItemToCreate(
                     productId = it.productId,
@@ -24,7 +24,17 @@ class OrderService(
             address = orderCreateCommand.address
         )
 
-        orderPersistPort.createOrder(order)
+        val order = orderPersistPort.createOrder(orderDto)
+        val orderItems = orderPersistPort.getOrderItemsByOrderId(order.orderId)
+
+        return OrderDetailsResponse(
+            orderId = order.orderId,
+            accountId = order.accountId,
+            address = order.address,
+            status = order.status,
+            orderItems = orderItems,
+            totalPrice = order.totalPrice,
+        )
 
     }
 

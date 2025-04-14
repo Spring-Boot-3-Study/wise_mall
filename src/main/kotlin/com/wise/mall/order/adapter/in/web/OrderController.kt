@@ -3,6 +3,7 @@ package com.wise.mall.order.adapter.`in`.web
 import com.wise.mall.order.adapter.`in`.web.dto.request.OrderCreateRequest
 import com.wise.mall.order.adapter.`in`.web.dto.response.OrderDetailsResponse
 import com.wise.mall.order.application.port.`in`.OrderUseCase
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -13,9 +14,12 @@ class OrderController(
     private val orderUseCase: OrderUseCase
 ) {
     @PostMapping
-    fun createOrder(@RequestBody createOrderRequest: OrderCreateRequest) {
+    fun createOrder(@RequestBody createOrderRequest: OrderCreateRequest): ResponseEntity<OrderDetailsResponse> {
         val orderCreateCommand = createOrderRequest.toCommand()
-        orderUseCase.createOrder(orderCreateCommand)
+
+        return ResponseEntity
+            .status(HttpStatus.CREATED)
+            .body(orderUseCase.createOrder(orderCreateCommand))
     }
 
     @GetMapping("/{orderId}")
