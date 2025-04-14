@@ -1,6 +1,8 @@
 package com.wise.mall.payment.adapter.out.persistence.entity
 
 
+import com.wise.mall.payment.application.domain.model.Payment
+import com.wise.mall.payment.application.domain.model.PaymentStatus
 import jakarta.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
@@ -19,8 +21,9 @@ class PaymentEntity (
     @Column(name="price")
     var price : Int,
 
+    @Enumerated(EnumType.STRING)
     @Column(name="status")
-    var status : Char,
+    var status : PaymentStatus,
 
     @Column(name="method")
     var method : String,
@@ -30,4 +33,30 @@ class PaymentEntity (
 
     @Column(name="accountId")
     var accountId : Long,
-)
+) {
+    fun toDomain(): Payment {
+        return Payment(
+            id = this.paymentId,
+            paymentCode = this.paymentCode,
+            price = this.price,
+            status = this.status,
+            method = this.method,
+            orderId = this.orderId,
+            accountId = this.accountId
+        )
+    }
+
+    companion object {
+        fun from(domain: Payment): PaymentEntity {
+            return PaymentEntity(
+                paymentId = domain.id,
+                paymentCode = domain.paymentCode,
+                price = domain.price,
+                status = domain.status,
+                method = domain.method,
+                orderId = domain.orderId,
+                accountId = domain.accountId
+            )
+        }
+    }
+}

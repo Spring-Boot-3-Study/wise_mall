@@ -5,6 +5,5 @@ data class CreatePaymentCommand (
     val accountId : Long,
     val paymentCode: String,
     val method : String,
-    val price : Int,
-    val status : Char
+    val price : Int
 )
