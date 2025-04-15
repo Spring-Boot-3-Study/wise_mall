@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+
+jwt:
+  secret: 526753878GQ6+556A586E327kE5D+hlIlStxSSm404E637z32MPi+W7O53ZsJa/0XdFG+MIA9235
+  expiration:
+    accessToken: 60
+    refreshToken: 720
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
