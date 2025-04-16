@@ -1,9 +1,9 @@
-package com.wise.mall.delivery.adapter.`in`.web.dto.response
+package com.wise.mall.delivery.application.dto
 
 import com.wise.mall.delivery.application.domain.model.DeliveryStatus
 import java.time.LocalDateTime
 
-data class GetDeliveryResponseDto (
+data class DeliveryToRegisterUpdate(
     val deliveryId: Long,
     val orderId: String,
     val courier: String,
@@ -11,4 +11,4 @@ data class GetDeliveryResponseDto (
     val status: DeliveryStatus,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime
-)
+) 

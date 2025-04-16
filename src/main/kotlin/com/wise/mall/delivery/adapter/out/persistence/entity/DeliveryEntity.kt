@@ -1,12 +1,13 @@
 package com.wise.mall.delivery.adapter.out.persistence.entity
 
-import com.wise.mall.delivery.application.domain.model.Delivery
 import com.wise.mall.delivery.application.domain.model.DeliveryStatus
 import com.wise.mall.global.entity.BaseTimeEntity
 import jakarta.persistence.*
+import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
 @Entity
 @Table(name = "delivery")
+@EntityListeners(AuditingEntityListener::class)
 class DeliveryEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,17 +26,4 @@ class DeliveryEntity (
     @Enumerated(EnumType.STRING)
     var status: DeliveryStatus,
 
-): BaseTimeEntity() {
-
-    fun toDomain(): Delivery {
-        return Delivery(
-            deliveryId = this.deliveryId,
-            orderId = this.orderId,
-            courier = this.courier,
-            trackNumber = this.trackNumber,
-            status = this.status,
-            createdAt = this.createdAt,
-            updatedAt = this.updatedAt
-        )
-    }
-}
+): BaseTimeEntity()

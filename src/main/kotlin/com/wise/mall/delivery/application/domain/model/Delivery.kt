@@ -9,15 +9,15 @@ class Delivery(
 
     val orderId: String,
 
-    private var courier: String,
+    var courier: String,
 
-    private var trackNumber: String,
+    var trackNumber: String,
 
-    val createdAt: LocalDateTime?,
+    val createdAt: LocalDateTime,
 
-    private var updatedAt: LocalDateTime?,
+    var updatedAt: LocalDateTime,
 
-    private var status: DeliveryStatus = DeliveryStatus.READY
+    var status: DeliveryStatus = DeliveryStatus.READY
 ){
     fun updateStatus(newStatus: DeliveryStatus) {
         if (!canTransitionTo(newStatus)) {
@@ -43,18 +43,4 @@ class Delivery(
         updateStatus(DeliveryStatus.SHIPPING)
     }
 
-    fun toEntity(): DeliveryEntity {
-        return DeliveryEntity(
-            deliveryId = this.deliveryId,
-            orderId = this.orderId,
-            courier = this.getCourier(),
-            trackNumber = this.getTrackingNumber(),
-            status = this.getStatus(),
-        )
-    }
-
-    fun getStatus(): DeliveryStatus = this.status
-    fun getTrackingNumber(): String = this.trackNumber
-    fun getCourier(): String = this.courier
-    fun getUpdatedAt(): LocalDateTime? = this.updatedAt
 }
