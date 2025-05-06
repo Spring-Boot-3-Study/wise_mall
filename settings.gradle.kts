@@ -1,13 +1,3 @@
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
-}
-rootProject.name = "wise_mall"
-include("bootstrap")
-include("adapter-in")
-include("adapter-out")
-include("application")
-include("domain")
-
 pluginManagement {
     plugins {
         id("org.springframework.boot") version "3.3.5"
@@ -16,9 +6,11 @@ pluginManagement {
         kotlin("plugin.spring") version "1.9.25"
         kotlin("plugin.jpa") version "1.9.25"
     }
-
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-    }
 }
+
+rootProject.name = "wise_mall"
+include("bootstrap")
+include("adapter-in")
+include("adapter-out")
+include("application")
+include("domain")

@@ -1,15 +1,17 @@
 plugins {
-	kotlin("jvm") version "1.9.25"
+	kotlin("jvm")
+	id("org.springframework.boot") apply false
+	id("io.spring.dependency-management") apply false
 }
 
 allprojects {
 	apply(plugin = "kotlin")
-
+	apply(plugin = "io.spring.dependency-management")
+	apply(plugin = "org.springframework.boot")
 	group = "com.wise.mall"
 	version = "0.0.1"
-
-
 	repositories {
+		gradlePluginPortal()
 		mavenCentral()
 	}
 
@@ -19,8 +21,7 @@ allprojects {
 			freeCompilerArgs.addAll("-Xjsr305=strict")
 		}
 	}
-
-	dependencies {}
+//	dependencies {}
 
 	tasks.withType<Test> {
 		useJUnitPlatform()
