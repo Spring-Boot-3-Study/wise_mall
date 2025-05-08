@@ -1,6 +1,6 @@
  plugins {
-	kotlin("jvm")
-	kotlin("plugin.jpa")
+	 kotlin("jvm")
+	 kotlin("plugin.jpa")
 	 kotlin("plugin.spring")
 }
 
@@ -12,7 +12,7 @@ kotlin {
 
 dependencies {
 	implementation(project(":application"))
-//		runtimeOnly("com.h2database:h2")
+	runtimeOnly("com.h2database:h2")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 }
