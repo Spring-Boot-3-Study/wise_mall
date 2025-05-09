@@ -1,4 +1,4 @@
-package com.wise.mall.common.execption
+package com.wise.mall.common.exception
 
 /**
  * Application 공통 예외 코드

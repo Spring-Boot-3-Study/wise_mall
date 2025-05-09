@@ -1,6 +1,7 @@
 package com.wise.mall.order.exception
 
-import com.wise.mall.global.exception.ErrorException
+import com.wise.mall.common.exception.ErrorException
+
 
 class OrderNotFoundException(
     val orderId: Long,

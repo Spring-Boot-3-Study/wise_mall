@@ -2,7 +2,7 @@ package com.wise.mall.account.persistence
 
 import com.wise.mall.account.persistence.entity.BlackAccessTokenEntity
 import com.wise.mall.account.persistence.repository.BlackAccessTokenRepository
-import com.wise.mall.account.application.port.out.BlackAccessTokenPersistPort
+import com.wise.mall.account.port.out.BlackAccessTokenPersistPort
 import org.springframework.stereotype.Component
 import java.time.LocalDateTime
 

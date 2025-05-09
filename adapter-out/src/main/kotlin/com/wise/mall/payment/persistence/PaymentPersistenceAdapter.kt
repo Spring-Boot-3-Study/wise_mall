@@ -1,16 +1,16 @@
 package com.wise.mall.payment.persistence
 
+import com.wise.mall.payment.model.Payment
 import com.wise.mall.payment.persistence.entity.PaymentEntity
 import com.wise.mall.payment.persistence.repository.PaymentRepository
-import com.wise.mall.payment.application.domain.model.Payment
-import com.wise.mall.payment.application.port.out.PaymentPersistencePort
+import com.wise.mall.payment.port.out.PaymentPersistencePort
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 
 @Component
 class PaymentPersistenceAdapter (
     private val paymentRepository : PaymentRepository
-): PaymentPersistencePort{
+): PaymentPersistencePort {
 
     @Transactional
     override fun createPayment(payment: Payment) {

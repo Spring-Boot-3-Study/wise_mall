@@ -1,6 +1,6 @@
 package com.wise.mall.account.persistence.exception
 
-import com.wise.mall.global.exception.ErrorCode
+import com.wise.mall.common.exception.ErrorCode
 
 enum class AccountAdapterErrorCode(
     private val code: Int,

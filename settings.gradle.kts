@@ -14,3 +14,5 @@ include("adapter-in")
 include("adapter-out")
 include("application")
 include("domain")
+
+include("common")

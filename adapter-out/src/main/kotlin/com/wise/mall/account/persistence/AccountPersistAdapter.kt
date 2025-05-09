@@ -1,11 +1,11 @@
 package com.wise.mall.account.persistence
 
-import com.wise.mall.account.persistence.entity.AccountEntity
 import com.wise.mall.account.persistence.exception.NotExistsAccountException
+import com.wise.mall.account.model.Account
+import com.wise.mall.account.persistence.entity.AccountEntity
 import com.wise.mall.account.persistence.repository.AccountRepository
-import com.wise.mall.account.application.domain.model.Account
-import com.wise.mall.account.application.port.out.AccountPersistPort
-import com.wise.mall.account.application.vo.CreateAccountVo
+import com.wise.mall.account.port.out.AccountPersistPort
+import com.wise.mall.account.vo.CreateAccountVo
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional

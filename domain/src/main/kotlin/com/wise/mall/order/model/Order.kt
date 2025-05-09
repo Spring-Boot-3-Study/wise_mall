@@ -1,6 +1,6 @@
 package com.wise.mall.order.model
 
-import com.wise.mall.global.vo.Address
+import com.wise.mall.common.vo.Address
 import java.time.LocalDateTime
 
 class Order(

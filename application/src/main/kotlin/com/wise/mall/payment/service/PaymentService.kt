@@ -1,5 +1,6 @@
 package com.wise.mall.payment.service
 
+import com.wise.mall.payment.dto.PaymentDto
 import com.wise.mall.payment.model.Payment
 import com.wise.mall.payment.model.PaymentStatus
 import com.wise.mall.payment.port.`in`.PaymentUseCase
@@ -28,11 +29,26 @@ class PaymentService (
         )
     }
 
-    override fun getPayment(id: Long): Payment {
-        return paymentReadPort.getPaymentById(id)
+    override fun getPayment(id: Long): PaymentDto {
+        val payment = paymentReadPort.getPaymentById(id)
+        return toPaymentDto(payment)
     }
 
-    override fun getPaymentsByAccountId(accountId: Long): List<Payment> {
-        return paymentReadPort.getPaymentsByAccountId(accountId)
+    override fun getPaymentsByAccountId(accountId: Long): List<PaymentDto> {
+        val payments = paymentReadPort.getPaymentsByAccountId(accountId)
+        return payments.map { toPaymentDto(it) }
+    }
+
+    private fun toPaymentDto(payment: Payment): PaymentDto {
+        return PaymentDto(
+            id = payment.id,
+            orderId = payment.orderId,
+            accountId = payment.accountId,
+            paymentCode = payment.paymentCode,
+            price = payment.price,
+            status = payment.status.toString(),
+            method = payment.method,
+            createdAt = payment.createdAt
+        )
     }
 }

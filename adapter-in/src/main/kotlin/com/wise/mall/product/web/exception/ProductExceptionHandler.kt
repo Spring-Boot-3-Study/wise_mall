@@ -1,7 +1,7 @@
 package com.wise.mall.product.web.exception
 
-import com.wise.mall.global.exception.ErrorException
-import com.wise.mall.global.response.ResponseDto
+import com.wise.mall.common.exception.ErrorException
+import com.wise.mall.common.response.ResponseDto
 import com.wise.mall.product.web.ProductController
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

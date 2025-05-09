@@ -1,6 +1,7 @@
 package com.wise.mall.account.exception
 
-import com.wise.mall.global.exception.ErrorException
+import com.wise.mall.common.exception.ErrorException
+
 
 class NotMatchAccountException (
 ): ErrorException(

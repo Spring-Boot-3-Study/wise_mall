@@ -1,6 +1,6 @@
 package com.wise.mall.account.port.out
 
-import com.wise.mall.account.application.domain.model.Account
+import com.wise.mall.account.model.Account
 import com.wise.mall.account.vo.CreateAccountVo
 
 interface AccountPersistPort {

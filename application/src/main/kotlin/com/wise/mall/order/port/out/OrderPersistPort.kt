@@ -1,8 +1,5 @@
 package com.wise.mall.order.port.out
 
-import com.wise.mall.order.domain.model.Order
-import com.wise.mall.order.domain.model.OrderItem
-import com.wise.mall.order.domain.vo.OrderToCreate
 import com.wise.mall.order.model.Order
 import com.wise.mall.order.model.OrderItem
 import com.wise.mall.order.vo.OrderToCreate

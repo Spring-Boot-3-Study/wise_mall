@@ -1,6 +1,6 @@
 package com.wise.mall.delivery.dto
 
-import com.wise.mall.delivery.application.domain.model.DeliveryStatus
+import com.wise.mall.common.enum.DeliveryStatus
 import java.time.LocalDateTime
 
 data class DeliveryToRegisterUpdate(

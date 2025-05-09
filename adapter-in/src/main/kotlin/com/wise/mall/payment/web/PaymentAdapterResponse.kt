@@ -1,6 +1,7 @@
 package com.wise.mall.payment.web
 
-import com.wise.mall.global.response.Response
+import com.wise.mall.common.response.Response
+
 
 enum class PaymentAdapterResponse(
     private val code: Int,

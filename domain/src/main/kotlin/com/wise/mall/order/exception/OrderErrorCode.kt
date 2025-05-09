@@ -1,6 +1,7 @@
 package com.wise.mall.order.exception
 
-import com.wise.mall.global.exception.ErrorCode
+import com.wise.mall.common.exception.ErrorCode
+
 
 enum class OrderErrorCode(
     private val code: Int,

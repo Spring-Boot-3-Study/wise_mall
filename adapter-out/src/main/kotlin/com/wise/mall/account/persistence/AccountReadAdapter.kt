@@ -1,8 +1,8 @@
 package com.wise.mall.account.persistence
 
+import com.wise.mall.account.model.Account
 import com.wise.mall.account.persistence.repository.AccountRepository
-import com.wise.mall.account.application.domain.model.Account
-import com.wise.mall.account.application.port.out.AccountReadPort
+import com.wise.mall.account.port.out.AccountReadPort
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 

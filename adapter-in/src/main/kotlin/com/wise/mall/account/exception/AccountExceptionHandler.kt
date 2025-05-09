@@ -1,7 +1,7 @@
 package com.wise.mall.account.exception
 
 import com.wise.mall.account.AccountController
-import com.wise.mall.common.execption.ErrorException
+import com.wise.mall.common.exception.ErrorException
 import com.wise.mall.common.response.ResponseDto
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

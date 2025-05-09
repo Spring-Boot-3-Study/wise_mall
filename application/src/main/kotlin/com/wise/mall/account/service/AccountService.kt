@@ -1,8 +1,8 @@
 package com.wise.mall.account.service
 
-import com.wise.mall.account.application.exception.AlreadyExistsEmailException
-import com.wise.mall.account.application.exception.NotMatchAccountException
-import com.wise.mall.account.application.exception.TokenExpiredException
+import com.wise.mall.account.exception.AlreadyExistsEmailException
+import com.wise.mall.account.exception.NotMatchAccountException
+import com.wise.mall.account.exception.TokenExpiredException
 import com.wise.mall.account.port.`in`.AccountAuthUseCase
 import com.wise.mall.account.port.`in`.command.JoinCommand
 import com.wise.mall.account.port.`in`.command.LoginCommand
@@ -15,7 +15,6 @@ import com.wise.mall.account.provider.TokenProvider
 import com.wise.mall.account.vo.CreateAccountVo
 import com.wise.mall.account.vo.TokenVo
 import org.springframework.stereotype.Service
-import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
 
 @Service
@@ -29,7 +28,7 @@ class AccountService(
     /**
      * 회원 가입
      */
-    @Transactional
+//    @Transactional
     override fun join(command: JoinCommand) {
 
         // 이메일 중복 여부 체크
@@ -50,7 +49,7 @@ class AccountService(
     /**
      * 로그인
      */
-    @Transactional
+//    @Transactional
     override fun login(command: LoginCommand) : TokenVo {
 
         val account = accountReadPort.getAccountByEmail(email = command.email)
@@ -76,7 +75,7 @@ class AccountService(
     /**
      * 로그 아웃
      */
-    @Transactional
+//    @Transactional
     override fun logout(command: LogoutCommand) {
 
         val account = accountReadPort.getAccountByRefreshToken(refreshToken = command.refreshToken)
@@ -103,7 +102,7 @@ class AccountService(
     /**
      * 토큰 재발행
      */
-    @Transactional
+//    @Transactional
     override fun reissue(command: ReissueCommand) : TokenVo  {
 
         // 만료 여부 체크

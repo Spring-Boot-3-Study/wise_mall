@@ -1,6 +1,7 @@
 package com.wise.mall.product.exception
 
-import com.wise.mall.global.exception.ErrorException
+import com.wise.mall.common.exception.ErrorException
+
 
 class InvalidPriceException (
     private val price: Int,

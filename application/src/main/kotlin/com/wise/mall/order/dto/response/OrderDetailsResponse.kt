@@ -1,8 +1,9 @@
 package com.wise.mall.order.web.dto.response
 
-import com.wise.mall.global.vo.Address
-import com.wise.mall.order.domain.model.OrderItem
-import com.wise.mall.order.domain.model.OrderStatus
+import com.wise.mall.common.vo.Address
+import com.wise.mall.order.model.OrderItem
+import com.wise.mall.order.model.OrderStatus
+
 
 data class OrderDetailsResponse(
     val orderId: Long,

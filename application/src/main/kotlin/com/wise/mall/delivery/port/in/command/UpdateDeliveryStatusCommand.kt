@@ -1,7 +1,7 @@
 package com.wise.mall.delivery.port.`in`.command
 
-import com.wise.mall.delivery.application.domain.model.DeliveryStatus
-import java.time.LocalDateTime
+import com.wise.mall.common.enum.DeliveryStatus
+
 
 data class UpdateDeliveryStatusCommand(
     val deliveryId: Long,

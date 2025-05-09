@@ -1,11 +1,20 @@
 package com.wise.mall.delivery.service
 
+import com.wise.mall.common.enum.DeliveryStatus
+import com.wise.mall.delivery.dto.DeliveryToRegisterUpdate
+import com.wise.mall.delivery.dto.response.GetDeliveryResponseDto
+import com.wise.mall.delivery.dto.response.RegisterDeliveryResponseDto
+import com.wise.mall.delivery.port.`in`.DeliveryUseCase
+import com.wise.mall.delivery.port.`in`.command.RegisterDeliveryCommand
+import com.wise.mall.delivery.port.`in`.command.UpdateDeliveryStatusCommand
+import com.wise.mall.delivery.port.out.DeliveryPersistPort
+import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 
 @Service
 class DeliveryService(private val deliveryPersistPort: DeliveryPersistPort) : DeliveryUseCase {
 
-    @Transactional
+//    @Transactional
     override fun registerDelivery(command: RegisterDeliveryCommand): RegisterDeliveryResponseDto {
         val deliveryDto = DeliveryToRegisterUpdate(
             deliveryId = 0L,
@@ -25,7 +34,7 @@ class DeliveryService(private val deliveryPersistPort: DeliveryPersistPort) : De
         )
     }
 
-    @Transactional
+//    @Transactional
     override fun getDelivery(deliveryId: Long): GetDeliveryResponseDto {
         val delivery = deliveryPersistPort.getDelivery(deliveryId)
         return GetDeliveryResponseDto(
@@ -39,7 +48,7 @@ class DeliveryService(private val deliveryPersistPort: DeliveryPersistPort) : De
         )
     }
 
-    @Transactional
+//    @Transactional
     override fun updateDeliveryStatus(command: UpdateDeliveryStatusCommand): RegisterDeliveryResponseDto {
         val delivery = deliveryPersistPort.getDelivery(command.deliveryId)
 

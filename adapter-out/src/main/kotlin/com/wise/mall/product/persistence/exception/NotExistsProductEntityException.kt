@@ -1,6 +1,6 @@
 package com.wise.mall.product.persistence.exception
 
-import com.wise.mall.global.exception.ErrorException
+import com.wise.mall.common.exception.ErrorException
 
 class NotExistsProductEntityException (
     private val id: Long,

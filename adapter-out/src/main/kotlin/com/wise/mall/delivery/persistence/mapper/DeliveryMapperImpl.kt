@@ -1,7 +1,7 @@
 package com.wise.mall.delivery.persistence.mapper
 
+import com.wise.mall.delivery.domain.model.Delivery
 import com.wise.mall.delivery.persistence.entity.DeliveryEntity
-import com.wise.mall.delivery.application.domain.model.Delivery
 import org.springframework.stereotype.Component
 
 @Component

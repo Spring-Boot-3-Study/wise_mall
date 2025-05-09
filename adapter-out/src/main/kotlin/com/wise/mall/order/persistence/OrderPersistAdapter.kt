@@ -1,16 +1,16 @@
 package com.wise.mall.order.persistence
 
-import com.wise.mall.order.adapter.out.OrderItemMapper
-import com.wise.mall.order.adapter.out.OrderMapper
+import com.wise.mall.order.exception.OrderNotFoundException
+import com.wise.mall.order.mapper.OrderItemMapper
+import com.wise.mall.order.mapper.OrderMapper
+import com.wise.mall.order.model.Order
+import com.wise.mall.order.model.OrderItem
 import com.wise.mall.order.persistence.entity.OrderItemEntity
 import com.wise.mall.order.persistence.repository.OrderItemRepository
 import com.wise.mall.order.persistence.repository.OrderRepository
-import com.wise.mall.order.application.port.out.OrderPersistPort
-import com.wise.mall.order.domain.exception.OrderNotFoundException
-import com.wise.mall.order.domain.model.Order
-import com.wise.mall.order.domain.model.OrderItem
-import com.wise.mall.order.domain.vo.OrderToCreate
-import com.wise.mall.product.adapter.out.persistence.repository.ProductRepository
+import com.wise.mall.order.port.out.OrderPersistPort
+import com.wise.mall.order.vo.OrderToCreate
+import com.wise.mall.product.persistence.repository.ProductRepository
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Component
 import kotlin.jvm.optionals.getOrElse

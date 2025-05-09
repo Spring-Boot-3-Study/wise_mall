@@ -1,11 +1,10 @@
 package com.wise.mall.payment.web
 
-import com.wise.mall.global.response.ResponseDto
+import com.wise.mall.common.response.ResponseDto
+import com.wise.mall.payment.port.`in`.PaymentUseCase
+import com.wise.mall.payment.port.`in`.command.CreatePaymentCommand
 import com.wise.mall.payment.web.dto.request.CreatePaymentRequestDto
 import com.wise.mall.payment.web.dto.response.GetPaymentResponseDto
-import com.wise.mall.payment.application.domain.model.Payment
-import com.wise.mall.payment.application.port.`in`.PaymentUseCase
-import com.wise.mall.payment.application.port.`in`.command.CreatePaymentCommand
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -29,8 +28,9 @@ class PaymentController(
             accountId = createPaymentRequest.accountId,
             paymentCode = createPaymentRequest.paymentCode,
             method = createPaymentRequest.method,
-            price =  createPaymentRequest.price
-        ))
+            price = createPaymentRequest.price
+        )
+        )
 
         return ResponseEntity
             .status(HttpStatus.OK)
@@ -39,16 +39,14 @@ class PaymentController(
 
     @GetMapping("/{id}")
     fun getPayment(@PathVariable id: Long) : ResponseEntity<ResponseDto<GetPaymentResponseDto>> {
-        val payment = paymentUseCase.getPayment(id)
+        val paymentDto = paymentUseCase.getPayment(id)
         val getPaymentResponseDto = GetPaymentResponseDto(
-
-            paymentId = payment.id,
-            orderId = payment.orderId,
-            paymentCode = payment.paymentCode,
-            method = payment.method,
-            status = payment.status.toString(),
-            createdAt = payment.createdAt,
-
+            paymentId = paymentDto.id,
+            orderId = paymentDto.orderId,
+            paymentCode = paymentDto.paymentCode,
+            method = paymentDto.method,
+            status = paymentDto.status,
+            createdAt = paymentDto.createdAt,
         )
 
         return ResponseEntity
@@ -58,20 +56,19 @@ class PaymentController(
 
     @GetMapping("/account/{accountId}")
     fun getPaymentsByAccount(@PathVariable accountId: Long) : ResponseEntity<ResponseDto<List<GetPaymentResponseDto>>> {
-        val payments : List<Payment> = paymentUseCase.getPaymentsByAccountId(accountId)
-        val paymentResponseDtoList : List<GetPaymentResponseDto> = payments.map{ payment: Payment ->
+        val paymentDtos = paymentUseCase.getPaymentsByAccountId(accountId)
+        val paymentResponseDtoList = paymentDtos.map { paymentDto ->
             GetPaymentResponseDto(
-                paymentId = payment.id,
-                orderId = payment.orderId,
-                paymentCode = payment.paymentCode,
-                method = payment.method,
-                status = payment.status.toString(),
-                createdAt = payment.createdAt
+                paymentId = paymentDto.id,
+                orderId = paymentDto.orderId,
+                paymentCode = paymentDto.paymentCode,
+                method = paymentDto.method,
+                status = paymentDto.status,
+                createdAt = paymentDto.createdAt
             )
         }
         return ResponseEntity
             .status(HttpStatus.OK)
             .body(PaymentAdapterResponse.PAYMENT_GET_ACCOUNT_PAYMENTS_SUCCESS.toResponseDto(paymentResponseDtoList))
-
     }
 }

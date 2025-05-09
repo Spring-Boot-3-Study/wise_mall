@@ -1,4 +1,4 @@
-package com.wise.mall.delivery.adapter.web.dto.response
+package com.wise.mall.delivery.dto.response
 
 data class RegisterDeliveryResponseDto(
     val deliveryId: Long,

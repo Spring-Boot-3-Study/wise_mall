@@ -1,9 +1,9 @@
 package com.wise.mall.product.persistence
 
+import com.wise.mall.product.model.Product
 import com.wise.mall.product.persistence.exception.NotExistsProductEntityException
 import com.wise.mall.product.persistence.repository.ProductRepository
-import com.wise.mall.product.application.domain.model.Product
-import com.wise.mall.product.application.port.out.ProductReadPort
+import com.wise.mall.product.port.out.ProductReadPort
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component

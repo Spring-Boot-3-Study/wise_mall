@@ -1,6 +1,6 @@
 package com.wise.mall.order.model
 
-import com.wise.mall.product.application.domain.model.Product
+import com.wise.mall.product.model.Product
 
 
 data class OrderItem(

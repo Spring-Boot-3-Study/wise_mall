@@ -1,8 +1,8 @@
 package com.wise.mall.payment.persistence.entity
 
 
-import com.wise.mall.payment.application.domain.model.Payment
-import com.wise.mall.payment.application.domain.model.PaymentStatus
+import com.wise.mall.payment.model.Payment
+import com.wise.mall.payment.model.PaymentStatus
 import jakarta.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 

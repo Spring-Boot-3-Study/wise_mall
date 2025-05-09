@@ -1,7 +1,7 @@
 package com.wise.mall.delivery.persistence.entity
 
-import com.wise.mall.delivery.application.domain.model.DeliveryStatus
-import com.wise.mall.global.entity.BaseTimeEntity
+import com.wise.mall.common.entity.BaseTimeEntity
+import com.wise.mall.common.enum.DeliveryStatus
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
@@ -26,4 +26,4 @@ class DeliveryEntity (
     @Enumerated(EnumType.STRING)
     var status: DeliveryStatus,
 
-): BaseTimeEntity()
+    ): BaseTimeEntity()

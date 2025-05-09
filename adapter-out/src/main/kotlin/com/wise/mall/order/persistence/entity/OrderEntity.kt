@@ -1,8 +1,8 @@
 package com.wise.mall.order.persistence.entity
 
-import com.wise.mall.global.entity.BaseTimeEntity
-import com.wise.mall.global.vo.Address
-import com.wise.mall.order.domain.model.OrderStatus
+import com.wise.mall.common.entity.AddressData
+import com.wise.mall.common.entity.BaseTimeEntity
+import com.wise.mall.order.model.OrderStatus
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
@@ -16,7 +16,7 @@ class OrderEntity(
     val accountId: String,
 
     @Embedded
-    val address: Address,
+    val address: AddressData,
 
     var totalPrice: Int,
 

@@ -1,4 +1,4 @@
-package com.wise.mall.delivery.domain.model
+package com.wise.mall.common.enum
 
 enum class DeliveryStatus {
     READY,

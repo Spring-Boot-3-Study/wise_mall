@@ -1,6 +1,6 @@
 package com.wise.mall.order.web.dto.request
 
-import com.wise.mall.order.application.command.OrderItemCreateCommand
+import com.wise.mall.order.command.OrderItemCreateCommand
 
 data class OrderItemRequest(
     val productId: Long,

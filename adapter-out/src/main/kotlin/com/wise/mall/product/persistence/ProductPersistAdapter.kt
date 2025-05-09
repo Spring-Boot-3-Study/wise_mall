@@ -3,9 +3,9 @@ package com.wise.mall.product.persistence
 import com.wise.mall.product.persistence.entity.ProductEntity
 import com.wise.mall.product.persistence.exception.NotExistsProductEntityException
 import com.wise.mall.product.persistence.repository.ProductRepository
-import com.wise.mall.product.application.port.out.ProductPersistPort
-import com.wise.mall.product.application.vo.CreateProductVo
-import com.wise.mall.product.application.vo.UpdateProductVo
+import com.wise.mall.product.port.out.ProductPersistPort
+import com.wise.mall.product.vo.CreateProductVo
+import com.wise.mall.product.vo.UpdateProductVo
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional

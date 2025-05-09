@@ -1,6 +1,6 @@
 package com.wise.mall.product.persistence.entity
 
-import com.wise.mall.global.entity.BaseTimeEntity
+import com.wise.mall.common.entity.BaseTimeEntity
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 

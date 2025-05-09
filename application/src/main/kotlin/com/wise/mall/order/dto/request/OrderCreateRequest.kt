@@ -1,7 +1,8 @@
 package com.wise.mall.order.web.dto.request
 
-import com.wise.mall.global.vo.Address
-import com.wise.mall.order.application.command.OrderCreateCommand
+
+import com.wise.mall.common.vo.Address
+import com.wise.mall.order.command.OrderCreateCommand
 
 data class OrderCreateRequest(
     val accountId: String,

@@ -1,6 +1,7 @@
 package com.wise.mall.product.web
 
-import com.wise.mall.global.response.Response
+import com.wise.mall.common.response.Response
+
 
 enum class ProductAdapterResponse(
     private val code: Int,

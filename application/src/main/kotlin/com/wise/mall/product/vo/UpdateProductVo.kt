@@ -1,6 +1,7 @@
 package com.wise.mall.product.vo
 
-import com.wise.mall.product.application.domain.model.Product
+import com.wise.mall.product.model.Product
+
 
 data class UpdateProductVo(
 

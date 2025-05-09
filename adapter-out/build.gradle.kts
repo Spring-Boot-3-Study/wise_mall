@@ -12,6 +12,9 @@ kotlin {
 
 dependencies {
 	implementation(project(":application"))
+	implementation(project(":domain"))
+	implementation(project(":common"))
+
 	runtimeOnly("com.h2database:h2")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")

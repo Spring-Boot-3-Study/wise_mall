@@ -1,6 +1,6 @@
 package com.wise.mall.product.persistence.exception
 
-import com.wise.mall.global.exception.ErrorCode
+import com.wise.mall.common.exception.ErrorCode
 
 enum class ProductAdapterErrorCode(
     private val code: Int,

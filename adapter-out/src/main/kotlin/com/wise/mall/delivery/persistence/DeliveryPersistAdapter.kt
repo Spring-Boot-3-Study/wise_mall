@@ -1,11 +1,11 @@
 package com.wise.mall.delivery.persistence
 
+import com.wise.mall.delivery.domain.model.Delivery
+import com.wise.mall.delivery.dto.DeliveryToRegisterUpdate
 import com.wise.mall.delivery.persistence.entity.DeliveryEntity
 import com.wise.mall.delivery.persistence.mapper.DeliveryMapper
 import com.wise.mall.delivery.persistence.repository.DeliveryRepository
-import com.wise.mall.delivery.application.domain.model.Delivery
-import com.wise.mall.delivery.application.dto.DeliveryToRegisterUpdate
-import com.wise.mall.delivery.application.port.out.DeliveryPersistPort
+import com.wise.mall.delivery.port.out.DeliveryPersistPort
 import org.springframework.stereotype.Component
 
 @Component

@@ -1,8 +1,8 @@
 package com.wise.mall.order.web
 
+import com.wise.mall.order.port.`in`.OrderUseCase
 import com.wise.mall.order.web.dto.request.OrderCreateRequest
 import com.wise.mall.order.web.dto.response.OrderDetailsResponse
-import com.wise.mall.order.application.port.`in`.OrderUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

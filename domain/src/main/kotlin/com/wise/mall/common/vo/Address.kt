@@ -1,8 +1,6 @@
 package com.wise.mall.common.vo
 
-import jakarta.persistence.Embeddable
 
-@Embeddable
 data class Address(
     val name: String,
     val phoneNumber: String,
