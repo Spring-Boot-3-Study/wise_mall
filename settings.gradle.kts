@@ -9,10 +9,16 @@ pluginManagement {
 }
 
 rootProject.name = "wise_mall"
-include("bootstrap")
-include("adapter-in")
-include("adapter-out")
-include("application")
-include("domain")
+//include("bootstrap")
+//include("adapter-in")
+//include("adapter-out")
+//include("application")
+//include("domain")
+//
+//include("common")
 
-include("common")
+include("account-service")
+include("delivery-service")
+include("order-service")
+include("payment-service")
+include("product-service")
