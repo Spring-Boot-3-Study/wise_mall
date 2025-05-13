@@ -40,47 +40,45 @@ class ProductController(
             .body(ProductAdapterResponse.PRODUCT_CREATE_PRODUCT_SUCCESS.toResponseDto())
     }
 
-    //TODO Domain을 리턴하는것이 아닌 DTO로 리턴하도록 변경
-//    @GetMapping("/{id}")
-//    fun getProduct(@PathVariable("id") id: Long): ResponseEntity<ResponseDto<GetProductResponseDto>> {
-//
-//        val productVo = productUseCase.getProduct(command = GetProductCommand(id))
-//
-//        val getProductResponseDto = GetProductResponseDto(
-//            id = productVo.id,
-//            name = productVo.name,
-//            price = productVo.price,
-//            createdAt = productVo.createdAt,
-//            updatedAt = productVo.updatedAt,
-//            isApprove = productVo.state == 1,
-//        )
-//
-//        return ResponseEntity
-//            .status(HttpStatus.OK)
-//            .body(ProductAdapterResponse.PRODUCT_GET_PRODUCT_SUCCESS.toResponseDto(getProductResponseDto))
-//    }
+    @GetMapping("/{id}")
+    fun getProduct(@PathVariable("id") id: Long): ResponseEntity<ResponseDto<GetProductResponseDto>> {
 
-    //TODO Domain을 리턴하는것이 아닌 DTO로 리턴하도록 변경
-//    @GetMapping
-//    fun getProducts(@RequestParam("page") page: Int, @RequestParam("size") size: Int): ResponseEntity<ResponseDto<List<GetProductResponseDto>>> {
-//
-//        val productVos = productUseCase.getProducts(command = GetProductsCommand(page = page, size = size))
-//
-//        val getProductResponseDtos = productVos.map { productVo ->
-//            GetProductResponseDto(
-//                id = productVo.id,
-//                name = productVo.name,
-//                price = productVo.price,
-//                createdAt = productVo.createdAt,
-//                updatedAt = productVo.updatedAt,
-//                isApprove = productVo.state == 1,
-//            )
-//        }
-//
-//        return ResponseEntity
-//            .status(HttpStatus.OK)
-//            .body(ProductAdapterResponse.PRODUCT_GET_PRODUCTS_SUCCESS.toResponseDto(getProductResponseDtos))
-//    }
+        val productDto = productUseCase.getProduct(command = GetProductCommand(id))
+
+        val getProductResponseDto = GetProductResponseDto(
+            id = productDto.id,
+            name = productDto.name,
+            price = productDto.price,
+            createdAt = productDto.createdAt,
+            updatedAt = productDto.updatedAt,
+            isApprove = productDto.state == 1,
+        )
+
+        return ResponseEntity
+            .status(HttpStatus.OK)
+            .body(ProductAdapterResponse.PRODUCT_GET_PRODUCT_SUCCESS.toResponseDto(getProductResponseDto))
+    }
+
+    @GetMapping
+    fun getProducts(@RequestParam("page") page: Int, @RequestParam("size") size: Int): ResponseEntity<ResponseDto<List<GetProductResponseDto>>> {
+
+        val productDtos = productUseCase.getProducts(command = GetProductsCommand(page = page, size = size))
+
+        val getProductResponseDtos = productDtos.map { productVo ->
+            GetProductResponseDto(
+                id = productVo.id,
+                name = productVo.name,
+                price = productVo.price,
+                createdAt = productVo.createdAt,
+                updatedAt = productVo.updatedAt,
+                isApprove = productVo.state == 1,
+            )
+        }
+
+        return ResponseEntity
+            .status(HttpStatus.OK)
+            .body(ProductAdapterResponse.PRODUCT_GET_PRODUCTS_SUCCESS.toResponseDto(getProductResponseDtos))
+    }
 
     @PostMapping("/{id}")
     fun approveRequestProduct(@PathVariable("id") id: Long): ResponseEntity<ResponseDto<Map<String, Any>>> {
