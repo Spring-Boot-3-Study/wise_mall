@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:product
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  output:
+    ansi:
+      enabled: always   # 실행 시 콘솔 ANSI 색상 출력 활성화
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  application:
+    name: product-service
+
+server:
+  port: 8085
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
