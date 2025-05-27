@@ -19,10 +19,14 @@ data class Payment (
 
     var createdAt: LocalDateTime ?= null,
 
+    var tid : String ?= null,
+
+    var approvedAt: LocalDateTime ?= null,
 )
 enum class PaymentStatus{
     SUCCESS,
     FAILED,
+    PENDING,
     CANCELLED;
     companion object {
         fun fromPgCode(code: String): PaymentStatus {
@@ -30,6 +34,7 @@ enum class PaymentStatus{
                 "SUCCESS" -> SUCCESS
                 "FAILED" -> FAILED
                 "CANCELLED" -> CANCELLED
+                "PENDING" -> PENDING
                 else -> throw Exception("Unknown PG Code: $code")
             }
         }

@@ -5,6 +5,7 @@ import com.wise.mall.payment.model.Payment
 import com.wise.mall.payment.model.PaymentStatus
 import jakarta.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
+import java.time.LocalDateTime
 
 @Entity
 @Table(name = "payment")
@@ -33,6 +34,15 @@ class PaymentEntity (
 
     @Column(name="accountId")
     var accountId : Long,
+
+    @Column(name = "approvedAt")
+    var createdAt: LocalDateTime? = null,
+
+    @Column(name = "tid")
+    var tid: String? = null,
+
+    @Column(name = "approvedAt")
+    var approvedAt: LocalDateTime? = null,
 ) {
     fun toDomain(): Payment {
         return Payment(
@@ -42,7 +52,10 @@ class PaymentEntity (
             status = this.status,
             method = this.method,
             orderId = this.orderId,
-            accountId = this.accountId
+            accountId = this.accountId,
+            createdAt = this.createdAt,
+            tid = this.tid,
+            approvedAt = this.approvedAt
         )
     }
 
@@ -55,7 +68,10 @@ class PaymentEntity (
                 status = domain.status,
                 method = domain.method,
                 orderId = domain.orderId,
-                accountId = domain.accountId
+                accountId = domain.accountId,
+                createdAt = domain.createdAt,
+                tid = domain.tid,
+                approvedAt = domain.approvedAt
             )
         }
     }

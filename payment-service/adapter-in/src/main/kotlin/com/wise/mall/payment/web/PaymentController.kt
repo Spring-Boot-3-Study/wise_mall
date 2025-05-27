@@ -2,7 +2,9 @@ package com.wise.mall.payment.web
 
 import com.wise.mall.common.response.ResponseDto
 import com.wise.mall.payment.port.`in`.PaymentUseCase
+import com.wise.mall.payment.port.`in`.command.ApprovePaymentCommand
 import com.wise.mall.payment.port.`in`.command.CreatePaymentCommand
+import com.wise.mall.payment.web.dto.request.ApprovePaymentRequestDto
 import com.wise.mall.payment.web.dto.request.CreatePaymentRequestDto
 import com.wise.mall.payment.web.dto.response.GetPaymentResponseDto
 import org.springframework.http.HttpStatus
@@ -36,7 +38,21 @@ class PaymentController(
             .status(HttpStatus.OK)
             .body(PaymentAdapterResponse.PAYMENT_CREATE_PAYMENT_SUCCESS.toResponseDto())
     }
+    @PostMapping
+    fun approvePayment(@RequestBody approvePaymentRequest : ApprovePaymentRequestDto) : ResponseEntity<ResponseDto<Map<String, Any>>>{
+        paymentUseCase.approvePayment(command= ApprovePaymentCommand(
+            orderId = approvePaymentRequest.orderId,
+            accountId = approvePaymentRequest.accountId,
+            paymentCode = approvePaymentRequest.paymentCode,
+            method = approvePaymentRequest.method,
+            price = approvePaymentRequest.price
+        )
+        )
 
+        return ResponseEntity
+            .status(HttpStatus.OK)
+            .body(PaymentAdapterResponse.PAYMENT_CREATE_PAYMENT_SUCCESS.toResponseDto())
+    }
     @GetMapping("/{id}")
     fun getPayment(@PathVariable id: Long) : ResponseEntity<ResponseDto<GetPaymentResponseDto>> {
         val paymentDto = paymentUseCase.getPayment(id)
