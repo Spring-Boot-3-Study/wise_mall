@@ -1,9 +1,7 @@
 package com.wise.mall.payment.port.`in`.command
 
 data class ApprovePaymentCommand(
-    val orderId: Long,
-    val accountId: Long,
-    val paymentCode: String,
-    val method : String,
-    val price : Int
+    val paymentId: Long,
+    val tid: String,
+    val pgToken: String,
 )

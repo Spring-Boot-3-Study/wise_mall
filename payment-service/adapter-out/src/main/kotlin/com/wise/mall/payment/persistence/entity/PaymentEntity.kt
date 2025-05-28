@@ -35,7 +35,7 @@ class PaymentEntity (
     @Column(name="accountId")
     var accountId : Long,
 
-    @Column(name = "approvedAt")
+    @Column(name = "createdAt")
     var createdAt: LocalDateTime? = null,
 
     @Column(name = "tid")

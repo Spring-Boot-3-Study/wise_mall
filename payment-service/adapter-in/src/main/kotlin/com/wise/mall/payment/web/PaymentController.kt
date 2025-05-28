@@ -38,14 +38,12 @@ class PaymentController(
             .status(HttpStatus.OK)
             .body(PaymentAdapterResponse.PAYMENT_CREATE_PAYMENT_SUCCESS.toResponseDto())
     }
-    @PostMapping
+    @PostMapping("/approve")
     fun approvePayment(@RequestBody approvePaymentRequest : ApprovePaymentRequestDto) : ResponseEntity<ResponseDto<Map<String, Any>>>{
         paymentUseCase.approvePayment(command= ApprovePaymentCommand(
-            orderId = approvePaymentRequest.orderId,
-            accountId = approvePaymentRequest.accountId,
-            paymentCode = approvePaymentRequest.paymentCode,
-            method = approvePaymentRequest.method,
-            price = approvePaymentRequest.price
+            paymentId = approvePaymentRequest.paymentId,
+            tid = approvePaymentRequest.tid,
+            pgToken = approvePaymentRequest.pgToken
         )
         )
 

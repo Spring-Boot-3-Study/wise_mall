@@ -10,11 +10,13 @@ import com.wise.mall.payment.port.out.PGPaymentClient
 import com.wise.mall.payment.port.out.PaymentPersistencePort
 import com.wise.mall.payment.port.out.PaymentReadPort
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
 
 @Service
 class PaymentService (
     private val paymentPersistencePort: PaymentPersistencePort,
     private val paymentReadPort : PaymentReadPort,
+    private val pgPaymentClient: PGPaymentClient
 ) : PaymentUseCase {
     override fun createPayment(command: CreatePaymentCommand) {
         paymentPersistencePort.createPayment(
@@ -41,8 +43,9 @@ class PaymentService (
     }
 
     override fun approvePayment(command: ApprovePaymentCommand) {
-        val payment = paymentPersistencePort.updatePayment();
 
+        paymentPersistencePort.updatePayment(command.paymentId,
+            pgPaymentClient.approvePayment(command.tid, command.pgToken),command.tid)
     }
 
     private fun toPaymentDto(payment: Payment): PaymentDto {

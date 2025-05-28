@@ -1,6 +1,7 @@
 package com.wise.mall.payment.persistence
 
 import com.wise.mall.payment.exception.NotExistsPaymentEntityException
+import com.wise.mall.payment.feign.OrderFeignClient
 import com.wise.mall.payment.model.Payment
 import com.wise.mall.payment.model.PaymentStatus
 import com.wise.mall.payment.persistence.entity.PaymentEntity
@@ -12,7 +13,8 @@ import java.time.LocalDateTime
 
 @Component
 class PaymentPersistenceAdapter (
-    private val paymentRepository : PaymentRepository
+    private val paymentRepository : PaymentRepository,
+    private val orderFeignClient: OrderFeignClient
 ): PaymentPersistencePort {
 
     @Transactional
@@ -35,7 +37,12 @@ class PaymentPersistenceAdapter (
 
         payment.status = paymentStatus
         payment.tid = tid
-        payment.approvedAt = LocalDateTime.now()
+        if(payment.status == PaymentStatus.SUCCESS){
+            payment.approvedAt = LocalDateTime.now()
+        }
+        paymentRepository.save(payment)
+
+        orderFeignClient.changeOrderStatus(payment.orderId, payment.status.toString())
 
     }
 }
