@@ -1,5 +1,6 @@
 package com.wise.mall.order.persistence
 
+import com.wise.mall.order.client.ProductClient
 import com.wise.mall.order.exception.OrderNotFoundException
 import com.wise.mall.order.mapper.OrderItemMapper
 import com.wise.mall.order.mapper.OrderMapper
@@ -10,7 +11,6 @@ import com.wise.mall.order.persistence.repository.OrderItemRepository
 import com.wise.mall.order.persistence.repository.OrderRepository
 import com.wise.mall.order.port.out.OrderPersistPort
 import com.wise.mall.order.vo.OrderToCreate
-import com.wise.mall.product.persistence.repository.ProductRepository
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Component
 import kotlin.jvm.optionals.getOrElse
@@ -20,9 +20,9 @@ import kotlin.jvm.optionals.getOrNull
 class OrderPersistAdapter(
     private val orderRepository: OrderRepository,
     private val orderItemRepository: OrderItemRepository,
-    private val productRepository: ProductRepository,
     private val orderMapper: OrderMapper,
-    private val orderItemMapper: OrderItemMapper
+    private val orderItemMapper: OrderItemMapper,
+    private val productClient: ProductClient
 ): OrderPersistPort {
 
     @Transactional
@@ -34,15 +34,16 @@ class OrderPersistAdapter(
         var total = 0
 
         order.orderItem.map { item ->
-            val product = productRepository.findById(item.productId)
-                .getOrNull() ?: throw RuntimeException("Product with id ${item.productId} not found")
+            val product = productClient.findById(item.productId).body?.result ?: throw RuntimeException("Product with id ${item.productId} not found")
+
+//                .getOrNull() ?: throw RuntimeException("Product with id ${item.productId} not found")
             val subtotal = product.price*item.quantity
             total += subtotal
 
             return@map OrderItemEntity(
                 orderItemId = null,
                 order = saved,
-                product = product,
+                productId = item.productId,
                 price = product.price,
                 quantity = item.quantity,
                 subTotal = subtotal

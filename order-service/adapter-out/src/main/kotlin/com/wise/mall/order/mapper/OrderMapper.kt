@@ -1,7 +1,7 @@
 package com.wise.mall.order.mapper
 
-import com.wise.mall.common.entity.AddressData
 import com.wise.mall.common.vo.Address
+import com.wise.mall.order.entity.AddressData
 import com.wise.mall.order.model.Order
 import com.wise.mall.order.model.OrderStatus
 import com.wise.mall.order.persistence.entity.OrderEntity
@@ -35,12 +35,12 @@ class OrderMapper {
             status = OrderStatus.PENDING,
             accountId = orderToCreate.accountId,
             address = AddressData(
-                    name = orderToCreate.address.name,
-                    phoneNumber = orderToCreate.address.phoneNumber,
-                    postalCode = orderToCreate.address.postalCode,
-                    address1 = orderToCreate.address.address1,
-                    address2 = orderToCreate.address.address2,
-                )
+                name = orderToCreate.address.name,
+                phoneNumber = orderToCreate.address.phoneNumber,
+                postalCode = orderToCreate.address.postalCode,
+                address1 = orderToCreate.address.address1,
+                address2 = orderToCreate.address.address2,
+            )
         )
     }
 }

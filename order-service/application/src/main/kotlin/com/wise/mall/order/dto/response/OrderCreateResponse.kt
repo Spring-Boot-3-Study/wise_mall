@@ -1,4 +1,4 @@
-package com.wise.mall.order.web.dto.response
+package com.wise.mall.order.dto.response
 
 class OrderCreateResponse {
 }
