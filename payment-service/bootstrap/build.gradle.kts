@@ -15,10 +15,12 @@ dependencies {
     implementation(project(":payment-service:adapter-out"))
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation ("org.springframework.cloud:spring-cloud-starter-openfeign")
 //	developmentOnly("org.springframework.boot:spring-boot-devtools")
+    implementation("org.mariadb.jdbc:mariadb-java-client:3.3.2")
+
 }
 dependencyManagement {
     imports {
