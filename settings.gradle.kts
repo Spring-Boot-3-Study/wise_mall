@@ -11,6 +11,7 @@ pluginManagement {
 rootProject.name = "wise_mall"
 
 include("service-discovery")
+include("service-gateway")
 
 include("account-service")
 include("delivery-service")
