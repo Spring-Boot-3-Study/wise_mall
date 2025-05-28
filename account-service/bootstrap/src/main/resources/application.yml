@@ -22,8 +22,12 @@ jwt:
     accessToken: 60
     refreshToken: 720
 server:
-  port: 8081
+  port: 0
 eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 20
   client:
     register-with-eureka: true
     fetch-registry: true

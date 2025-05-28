@@ -3,14 +3,11 @@ package com.wise.mall.product.web
 import com.wise.mall.common.response.ResponseDto
 import com.wise.mall.product.port.`in`.ApprovalProductUseCase
 import com.wise.mall.product.port.`in`.ProductUseCase
-import com.wise.mall.product.port.`in`.command.ApprovalAllowProductCommand
-import com.wise.mall.product.port.`in`.command.ApprovalDenyProductCommand
-import com.wise.mall.product.port.`in`.command.ApprovalRequestProductCommand
-import com.wise.mall.product.port.`in`.command.CreateProductCommand
-import com.wise.mall.product.port.`in`.command.GetProductCommand
-import com.wise.mall.product.port.`in`.command.GetProductsCommand
+import com.wise.mall.product.port.`in`.command.*
 import com.wise.mall.product.web.dto.request.CreateProductRequestDto
 import com.wise.mall.product.web.dto.response.GetProductResponseDto
+import jakarta.validation.Valid
+import jakarta.validation.constraints.Min
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -21,12 +18,14 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/product")
 class ProductController(
-    private val approvalProductUseCase: ApprovalProductUseCase,
-    private val productUseCase: ProductUseCase,
+    private var approvalProductUseCase: ApprovalProductUseCase,
+    private var productUseCase: ProductUseCase,
 ) {
 
     @PostMapping
-    fun createProduct(@RequestBody createProductRequest: CreateProductRequestDto): ResponseEntity<ResponseDto<Map<String, Any>>> {
+    fun createProduct(
+        @Valid @RequestBody createProductRequest: CreateProductRequestDto,
+    ): ResponseEntity<ResponseDto<Map<String, Any>>> {
 
         productUseCase.createProduct(
             command = CreateProductCommand(
@@ -41,7 +40,9 @@ class ProductController(
     }
 
     @GetMapping("/{id}")
-    fun getProduct(@PathVariable("id") id: Long): ResponseEntity<ResponseDto<GetProductResponseDto>> {
+    fun getProduct(
+        @PathVariable("id") id: Long,
+    ): ResponseEntity<ResponseDto<GetProductResponseDto>> {
 
         val productDto = productUseCase.getProduct(command = GetProductCommand(id))
 
@@ -60,7 +61,10 @@ class ProductController(
     }
 
     @GetMapping
-    fun getProducts(@RequestParam("page") page: Int, @RequestParam("size") size: Int): ResponseEntity<ResponseDto<List<GetProductResponseDto>>> {
+    fun getProducts(
+        @RequestParam("page") @Min(1) page: Int,
+        @RequestParam("size") @Min(1) size: Int,
+    ): ResponseEntity<ResponseDto<List<GetProductResponseDto>>> {
 
         val productDtos = productUseCase.getProducts(command = GetProductsCommand(page = page, size = size))
 
@@ -81,7 +85,9 @@ class ProductController(
     }
 
     @PostMapping("/{id}")
-    fun approveRequestProduct(@PathVariable("id") id: Long): ResponseEntity<ResponseDto<Map<String, Any>>> {
+    fun approveRequestProduct(
+        @PathVariable("id") id: Long,
+    ): ResponseEntity<ResponseDto<Map<String, Any>>> {
 
         approvalProductUseCase.approvalRequestProduct(command = ApprovalRequestProductCommand(id = id))
 
@@ -91,7 +97,9 @@ class ProductController(
     }
 
     @PutMapping("/approve/allow")
-    fun approveAllowProduct(@RequestParam("id") id: Long): ResponseEntity<ResponseDto<Map<String, Any>>> {
+    fun approveAllowProduct(
+        @RequestParam("id") id: Long,
+    ): ResponseEntity<ResponseDto<Map<String, Any>>> {
 
         approvalProductUseCase.approvalAllowProduct(command = ApprovalAllowProductCommand(id = id))
 
@@ -101,7 +109,9 @@ class ProductController(
     }
 
     @PutMapping("/approve/deny")
-    fun approveDenyProduct(@RequestParam("id") id: Long): ResponseEntity<ResponseDto<Map<String, Any>>> {
+    fun approveDenyProduct(
+        @RequestParam("id") id: Long,
+    ): ResponseEntity<ResponseDto<Map<String, Any>>> {
 
         approvalProductUseCase.approvalDenyProduct(command = ApprovalDenyProductCommand(id = id))
 

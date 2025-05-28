@@ -26,4 +26,17 @@ class ProductExceptionHandler {
                 )
             )
     }
+
+    @ExceptionHandler(RuntimeException::class)
+    fun handleRuntimeException(errorException: RuntimeException): ResponseEntity<ResponseDto<Map<String, Any>>> {
+        return ResponseEntity
+            .status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .body(
+                ResponseDto(
+                    code = 0,
+                    message =  errorException.message.toString(),
+                    result = mapOf(),
+                )
+            )
+    }
 }
