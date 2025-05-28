@@ -1,8 +1,10 @@
 plugins {
 	kotlin("jvm")
 	id("org.springframework.boot") apply false
-	id("io.spring.dependency-management") apply false
+	id("io.spring.dependency-management")
 }
+
+val springCloudVersion by extra("2024.0.1")
 
 allprojects {
 	apply(plugin = "kotlin")
@@ -11,7 +13,6 @@ allprojects {
 		gradlePluginPortal()
 		mavenCentral()
 	}
-
 	kotlin {
 		jvmToolchain(17)
 		compilerOptions {
@@ -25,6 +26,8 @@ allprojects {
 }
 
 subprojects {
+	apply(plugin = "io.spring.dependency-management")
+	apply(plugin = "org.springframework.boot")
 
 	java {
 		toolchain {
@@ -33,8 +36,13 @@ subprojects {
 	}
 
 
-	apply(plugin = "io.spring.dependency-management")
-	apply(plugin = "org.springframework.boot")
+	dependencyManagement {
+		imports {
+			mavenBom("org.springframework.cloud:spring-cloud-dependencies:${rootProject.extra["springCloudVersion"]}")
+		}
+	}
+
+
 	group = "com.wise.mall"
 	version = "0.0.1"
 

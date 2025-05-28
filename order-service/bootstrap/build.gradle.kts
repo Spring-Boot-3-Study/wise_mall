@@ -4,7 +4,6 @@ plugins {
     id("io.spring.dependency-management")
     kotlin("plugin.spring")
 }
-val springCloudVersion by extra("2024.0.1")
 
 dependencies {
 
@@ -19,9 +18,4 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 //	developmentOnly("org.springframework.boot:spring-boot-devtools")
-}
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
-    }
 }

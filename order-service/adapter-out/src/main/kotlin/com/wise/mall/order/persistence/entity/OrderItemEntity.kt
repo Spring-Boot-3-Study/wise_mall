@@ -1,7 +1,6 @@
 package com.wise.mall.order.persistence.entity
 
-import com.wise.mall.common.entity.BaseTimeEntity
-import com.wise.mall.product.persistence.entity.ProductEntity
+import com.wise.mall.order.entity.BaseTimeEntity
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
@@ -18,9 +17,7 @@ class OrderItemEntity(
     @JoinColumn(name = "order_id")
     val order: OrderEntity,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name= "product_id")
-    val product: ProductEntity,
+    val productId: Long,
 
     // 구매 당시 가격
     val price: Int,

@@ -1,4 +1,4 @@
-package com.wise.mall.order.web.dto.response
+package com.wise.mall.order.dto.response
 
 import com.wise.mall.common.vo.Address
 import com.wise.mall.order.model.OrderItem

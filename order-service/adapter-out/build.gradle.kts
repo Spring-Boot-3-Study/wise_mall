@@ -17,8 +17,11 @@ dependencies {
 
     runtimeOnly("com.h2database:h2")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+
 //	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 }
+
 allOpen {
     annotation("jakarta.persistence.Entity")
     annotation("jakarta.persistence.MappedSuperclass")
