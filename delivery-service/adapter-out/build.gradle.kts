@@ -15,9 +15,8 @@ dependencies {
     implementation(project(":delivery-service:domain"))
     implementation(project(":common"))
 
-    runtimeOnly("com.h2database:h2")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-//	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+    implementation("org.mariadb.jdbc:mariadb-java-client:3.1.4")
 }
 allOpen {
     annotation("jakarta.persistence.Entity")

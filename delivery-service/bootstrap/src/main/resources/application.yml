@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:delivery
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    url: jdbc:mariadb://jinhome-server.tplinkdns.com:3306/delivery_service?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+    username: delivery
+    password: asd123
+    driver-class-name: org.mariadb.jdbc.Driver
 
   output:
     ansi:
@@ -11,8 +11,11 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
   application:
     name: delivery-service
 
