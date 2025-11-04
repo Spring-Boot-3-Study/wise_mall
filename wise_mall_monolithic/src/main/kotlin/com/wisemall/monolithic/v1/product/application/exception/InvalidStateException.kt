@@ -1,6 +1,6 @@
-package com.wise.mall.v1.product.application.exception
+package com.wisemall.monolithic.v1.product.application.exception
 
-import com.wise.mall.v1.global.exception.ErrorException
+import com.wisemall.monolithic.v1.global.exception.ErrorException
 
 class InvalidStateException (
     private val id: Long,

@@ -1,11 +1,11 @@
-package com.wise.mall.v1.product.adapter.`in`.web
+package com.wisemall.monolithic.v1.product.adapter.`in`.web
 
-import com.wise.mall.v1.global.response.ResponseDto
-import com.wise.mall.v1.product.adapter.`in`.web.dto.request.CreateProductRequestDto
-import com.wise.mall.v1.product.adapter.`in`.web.dto.response.GetProductResponseDto
-import com.wise.mall.v1.product.application.port.`in`.ApprovalProductUseCase
-import com.wise.mall.v1.product.application.port.`in`.ProductUseCase
-import com.wise.mall.v1.product.application.port.`in`.command.*
+import com.wisemall.monolithic.v1.global.response.ResponseDto
+import com.wisemall.monolithic.v1.product.adapter.`in`.web.dto.request.CreateProductRequestDto
+import com.wisemall.monolithic.v1.product.adapter.`in`.web.dto.response.GetProductResponseDto
+import com.wisemall.monolithic.v1.product.application.port.`in`.ApprovalProductUseCase
+import com.wisemall.monolithic.v1.product.application.port.`in`.ProductUseCase
+import com.wisemall.monolithic.v1.product.application.port.`in`.command.*
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

@@ -14,7 +14,6 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
 
-
 jwt:
   secret: 526753878GQ6+556A586E327kE5D+hlIlStxSSm404E637z32MPi+W7O53ZsJa/0XdFG+MIA9235
   expiration:

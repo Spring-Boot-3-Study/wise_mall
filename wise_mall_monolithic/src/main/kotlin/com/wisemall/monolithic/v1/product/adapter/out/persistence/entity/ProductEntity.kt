@@ -1,6 +1,6 @@
-package com.wise.mall.v1.product.adapter.out.persistence.entity
+package com.wisemall.monolithic.v1.product.adapter.out.persistence.entity
 
-import com.wise.mall.v1.global.entity.BaseTimeEntity
+import com.wisemall.monolithic.v1.global.entity.BaseEntity
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
@@ -23,7 +23,7 @@ class ProductEntity(
     @Column(name = "state")
     var state: Int,
 
-) : BaseTimeEntity() {
+) : BaseEntity() {
 
     /**
      * 승인 여부 플래그 변경

@@ -1,4 +1,4 @@
-package com.wise.mall.v1.account.application.vo
+package com.wisemall.monolithic.v1.account.application.vo
 
 data class CreateAccountVo(
 

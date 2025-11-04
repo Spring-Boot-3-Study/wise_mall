@@ -1,8 +1,8 @@
-package com.wise.mall.v1.account.adapter.out.persistence
+package com.wisemall.monolithic.v1.account.adapter.out.persistence
 
-import com.wise.mall.v1.account.adapter.out.persistence.repository.AccountRepository
-import com.wise.mall.v1.account.application.domain.model.Account
-import com.wise.mall.v1.account.application.port.out.AccountReadPort
+import com.wisemall.monolithic.v1.account.adapter.out.persistence.repository.AccountRepository
+import com.wisemall.monolithic.v1.account.application.domain.model.Account
+import com.wisemall.monolithic.v1.account.application.port.out.AccountReadPort
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 

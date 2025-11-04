@@ -1,4 +1,4 @@
-package com.wise.mall.v1.global.response
+package com.wisemall.monolithic.v1.global.response
 
 /**
  * Adapter 공통 응답 Dto 클래스

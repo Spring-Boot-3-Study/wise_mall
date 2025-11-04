@@ -1,4 +1,4 @@
-package com.wise.mall.v1.account.application.provider
+package com.wisemall.monolithic.v1.account.application.provider
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.ExpiredJwtException

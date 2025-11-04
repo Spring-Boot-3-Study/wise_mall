@@ -1,6 +1,6 @@
-package com.wise.mall.v1.account.adapter.`in`.web
+package com.wisemall.monolithic.v1.account.adapter.`in`.web
 
-import com.wise.mall.v1.global.response.Response
+import com.wisemall.monolithic.v1.global.response.Response
 
 enum class AccountAdapterResponse(
     private val code: Int,

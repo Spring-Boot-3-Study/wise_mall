@@ -1,10 +1,10 @@
-package com.wise.mall.v1.account.application.port.`in`
+package com.wisemall.monolithic.v1.account.application.port.`in`
 
-import com.wise.mall.v1.account.application.port.`in`.command.JoinCommand
-import com.wise.mall.v1.account.application.port.`in`.command.LoginCommand
-import com.wise.mall.v1.account.application.port.`in`.command.LogoutCommand
-import com.wise.mall.v1.account.application.port.`in`.command.ReissueCommand
-import com.wise.mall.v1.account.application.vo.TokenVo
+import com.wisemall.monolithic.v1.account.application.port.`in`.command.JoinCommand
+import com.wisemall.monolithic.v1.account.application.port.`in`.command.LoginCommand
+import com.wisemall.monolithic.v1.account.application.port.`in`.command.LogoutCommand
+import com.wisemall.monolithic.v1.account.application.port.`in`.command.ReissueCommand
+import com.wisemall.monolithic.v1.account.application.vo.TokenVo
 
 interface AccountAuthUseCase {
 

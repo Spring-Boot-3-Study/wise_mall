@@ -1,4 +1,4 @@
-package com.wise.mall.v1.account.adapter.out.persistence.entity
+package com.wisemall.monolithic.v1.account.adapter.out.persistence.entity
 
 import jakarta.persistence.*
 import java.time.LocalDateTime

@@ -1,11 +1,11 @@
-package com.wise.mall.v1.product.adapter.out.persistence
+package com.wisemall.monolithic.v1.product.adapter.out.persistence
 
-import com.wise.mall.v1.product.adapter.out.persistence.entity.ProductEntity
-import com.wise.mall.v1.product.adapter.out.persistence.exception.NotExistsProductEntityException
-import com.wise.mall.v1.product.adapter.out.persistence.repository.ProductRepository
-import com.wise.mall.v1.product.application.port.out.ProductPersistPort
-import com.wise.mall.v1.product.application.vo.CreateProductVo
-import com.wise.mall.v1.product.application.vo.UpdateProductVo
+import com.wisemall.monolithic.v1.product.adapter.out.persistence.entity.ProductEntity
+import com.wisemall.monolithic.v1.product.adapter.out.persistence.exception.NotExistsProductEntityException
+import com.wisemall.monolithic.v1.product.adapter.out.persistence.repository.ProductRepository
+import com.wisemall.monolithic.v1.product.application.port.out.ProductPersistPort
+import com.wisemall.monolithic.v1.product.application.vo.CreateProductVo
+import com.wisemall.monolithic.v1.product.application.vo.UpdateProductVo
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional

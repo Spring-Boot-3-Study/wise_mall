@@ -1,6 +1,6 @@
-package com.wise.mall.v1.product.adapter.out.persistence.exception
+package com.wisemall.monolithic.v1.product.adapter.out.persistence.exception
 
-import com.wise.mall.v1.global.exception.ErrorCode
+import com.wisemall.monolithic.v1.global.exception.ErrorCode
 
 enum class ProductAdapterErrorCode(
     private val code: Int,

@@ -1,4 +1,4 @@
-package com.wise.mall.v1.global.response
+package com.wisemall.monolithic.v1.global.response
 
 import java.util.*
 

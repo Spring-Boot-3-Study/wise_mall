@@ -1,7 +1,7 @@
-package com.wise.mall.v1.product.application.port.out
+package com.wisemall.monolithic.v1.product.application.port.out
 
-import com.wise.mall.v1.product.application.vo.CreateProductVo
-import com.wise.mall.v1.product.application.vo.UpdateProductVo
+import com.wisemall.monolithic.v1.product.application.vo.CreateProductVo
+import com.wisemall.monolithic.v1.product.application.vo.UpdateProductVo
 
 interface ProductPersistPort {
 

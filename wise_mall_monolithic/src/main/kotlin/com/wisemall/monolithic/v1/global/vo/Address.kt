@@ -1,4 +1,4 @@
-package com.wise.mall.v1.global.vo
+package com.wisemall.monolithic.v1.global.vo
 
 import jakarta.persistence.Embeddable
 

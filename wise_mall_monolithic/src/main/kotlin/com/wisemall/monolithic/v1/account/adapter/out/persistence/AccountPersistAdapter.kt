@@ -1,11 +1,11 @@
-package com.wise.mall.v1.account.adapter.out.persistence
+package com.wisemall.monolithic.v1.account.adapter.out.persistence
 
-import com.wise.mall.v1.account.adapter.out.persistence.entity.AccountEntity
-import com.wise.mall.v1.account.adapter.out.persistence.exception.NotExistsAccountException
-import com.wise.mall.v1.account.adapter.out.persistence.repository.AccountRepository
-import com.wise.mall.v1.account.application.domain.model.Account
-import com.wise.mall.v1.account.application.port.out.AccountPersistPort
-import com.wise.mall.v1.account.application.vo.CreateAccountVo
+import com.wisemall.monolithic.v1.account.adapter.out.persistence.entity.AccountEntity
+import com.wisemall.monolithic.v1.account.adapter.out.persistence.exception.NotExistsAccountException
+import com.wisemall.monolithic.v1.account.adapter.out.persistence.repository.AccountRepository
+import com.wisemall.monolithic.v1.account.application.domain.model.Account
+import com.wisemall.monolithic.v1.account.application.port.out.AccountPersistPort
+import com.wisemall.monolithic.v1.account.application.vo.CreateAccountVo
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
