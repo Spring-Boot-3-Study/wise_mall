@@ -1,6 +1,6 @@
 package com.wise.mall.delivery.adapter.web
 
-import com.wise.mall.common.enum.DeliveryStatus
+import com.wise.mall.common.enums.DeliveryStatus
 import com.wise.mall.delivery.adapter.web.dto.request.RegisterDeliveryRequestDto
 import com.wise.mall.delivery.port.`in`.DeliveryUseCase
 import com.wise.mall.delivery.port.`in`.command.RegisterDeliveryCommand

@@ -8,7 +8,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "wise_mall"
+rootProject.name = "wise_mall_msa"
 
 include("service-discovery")
 include("service-gateway")

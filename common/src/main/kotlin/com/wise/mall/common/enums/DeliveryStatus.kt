@@ -1,4 +1,4 @@
-package com.wise.mall.common.enum
+package com.wise.mall.common.enums
 
 enum class DeliveryStatus {
     READY,

@@ -1,6 +1,6 @@
 package com.wise.mall.delivery.domain.model
 
-import com.wise.mall.common.enum.DeliveryStatus
+import com.wise.mall.common.enums.DeliveryStatus
 import java.time.LocalDateTime
 
 

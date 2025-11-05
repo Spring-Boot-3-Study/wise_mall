@@ -9,7 +9,7 @@
 # API 목록
 현재 레포지토리에 정의된 주요 HTTP 엔드포인트를 다음 표에 정리했습니다.
 
-## Monolithic-Architecture: v1
+## MSA API
 
 ### Account-Service
 | Method | URL | Description |

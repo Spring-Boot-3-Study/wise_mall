@@ -1,6 +1,6 @@
 package com.wise.mall.delivery.persistence.entity
 
-import com.wise.mall.common.enum.DeliveryStatus
+import com.wise.mall.common.enums.DeliveryStatus
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 

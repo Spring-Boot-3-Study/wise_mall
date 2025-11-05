@@ -1,6 +1,6 @@
 package com.wise.mall.delivery.service
 
-import com.wise.mall.common.enum.DeliveryStatus
+import com.wise.mall.common.enums.DeliveryStatus
 import com.wise.mall.delivery.dto.DeliveryToRegisterUpdate
 import com.wise.mall.delivery.dto.response.GetDeliveryResponseDto
 import com.wise.mall.delivery.dto.response.RegisterDeliveryResponseDto
