@@ -26,7 +26,7 @@ dependencies {
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:${jjwtVersion}")
 
     //logging
-    runtimeOnly("io.github.oshai:kotlin-logging-jvm:${kotlinLoggingVersion}")
+    implementation("io.github.oshai:kotlin-logging-jvm:${kotlinLoggingVersion}")
     // kotest
     testImplementation("io.kotest:kotest-runner-junit5:${kotestVersion}")
     testImplementation("io.kotest:kotest-assertions-core:${kotestVersion}")

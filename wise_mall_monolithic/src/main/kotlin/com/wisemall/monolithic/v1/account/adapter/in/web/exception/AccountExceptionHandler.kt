@@ -1,8 +1,8 @@
-package com.wise.mall.v1.account.adapter.`in`.web.exception
+package com.wisemall.monolithic.v1.account.adapter.`in`.web.exception
 
-import com.wise.mall.v1.account.adapter.`in`.web.AccountController
-import com.wise.mall.v1.global.exception.ErrorException
-import com.wise.mall.v1.global.response.ResponseDto
+import com.wisemall.monolithic.v1.account.adapter.`in`.web.AccountController
+import com.wisemall.monolithic.v1.global.exception.ErrorException
+import com.wisemall.monolithic.v1.global.response.ResponseDto
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice

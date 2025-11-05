@@ -1,4 +1,4 @@
-package com.wise.mall.v1.product.application.vo
+package com.wisemall.monolithic.v1.product.application.vo
 
 data class CreateProductVo(
 

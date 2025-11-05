@@ -1,8 +1,8 @@
-package com.wise.mall.v1.account.adapter.out.persistence
+package com.wisemall.monolithic.v1.account.adapter.out.persistence
 
-import com.wise.mall.v1.account.adapter.out.persistence.entity.BlackAccessTokenEntity
-import com.wise.mall.v1.account.adapter.out.persistence.repository.BlackAccessTokenRepository
-import com.wise.mall.v1.account.application.port.out.BlackAccessTokenPersistPort
+import com.wisemall.monolithic.v1.account.adapter.out.persistence.entity.BlackAccessTokenEntity
+import com.wisemall.monolithic.v1.account.adapter.out.persistence.repository.BlackAccessTokenRepository
+import com.wisemall.monolithic.v1.account.application.port.out.BlackAccessTokenPersistPort
 import org.springframework.stereotype.Component
 import java.time.LocalDateTime
 

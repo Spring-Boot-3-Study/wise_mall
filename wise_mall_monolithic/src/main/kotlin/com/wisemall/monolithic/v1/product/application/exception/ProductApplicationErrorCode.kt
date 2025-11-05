@@ -1,6 +1,6 @@
-package com.wise.mall.v1.product.application.exception
+package com.wisemall.monolithic.v1.product.application.exception
 
-import com.wise.mall.v1.global.exception.ErrorCode
+import com.wisemall.monolithic.v1.global.exception.ErrorCode
 
 enum class ProductApplicationErrorCode(
     private val code: Int,

@@ -1,4 +1,4 @@
-package com.wise.mall.v1.global.exception
+package com.wisemall.monolithic.v1.global.exception
 
 import java.util.*
 

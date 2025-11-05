@@ -1,6 +1,6 @@
-package com.wise.mall.v1.product.application.vo
+package com.wisemall.monolithic.v1.product.application.vo
 
-import com.wise.mall.v1.product.application.domain.model.Product
+import com.wisemall.monolithic.v1.product.application.domain.model.Product
 
 data class UpdateProductVo(
 

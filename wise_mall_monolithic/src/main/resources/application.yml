@@ -1,20 +1,20 @@
 spring:
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
   datasource:
     url: jdbc:mysql://jinhome-server.tplinkdns.com:13306/wise_mall
     username: wise_admin
     password: asd123!@#
-    driver-class-name: com.mysql.jdbc.Driver
-
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
     properties:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
-
-
 jwt:
   secret: 526753878GQ6+556A586E327kE5D+hlIlStxSSm404E637z32MPi+W7O53ZsJa/0XdFG+MIA9235
   expiration:

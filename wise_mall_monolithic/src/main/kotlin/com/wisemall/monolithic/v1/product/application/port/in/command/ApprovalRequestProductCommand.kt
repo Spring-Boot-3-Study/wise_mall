@@ -1,4 +1,4 @@
-package com.wise.mall.v1.product.application.port.`in`.command
+package com.wisemall.monolithic.v1.product.application.port.`in`.command
 
 data class ApprovalRequestProductCommand(
 

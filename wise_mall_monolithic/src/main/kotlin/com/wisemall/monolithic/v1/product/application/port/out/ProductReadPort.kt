@@ -1,6 +1,6 @@
-package com.wise.mall.v1.product.application.port.out
+package com.wisemall.monolithic.v1.product.application.port.out
 
-import com.wise.mall.v1.product.application.domain.model.Product
+import com.wisemall.monolithic.v1.product.application.domain.model.Product
 
 interface ProductReadPort {
 

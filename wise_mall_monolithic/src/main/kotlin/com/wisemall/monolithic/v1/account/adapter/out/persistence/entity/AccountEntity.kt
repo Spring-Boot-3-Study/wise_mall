@@ -1,6 +1,6 @@
-package com.wise.mall.v1.account.adapter.out.persistence.entity
+package com.wisemall.monolithic.v1.account.adapter.out.persistence.entity
 
-import com.wise.mall.v1.global.entity.BaseTimeEntity
+import com.wisemall.monolithic.v1.global.entity.BaseEntity
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
@@ -26,7 +26,7 @@ class AccountEntity(
     @Column(name = "refresh_token")
     var refreshToken: String? = null,
 
-) : BaseTimeEntity() {
+) : BaseEntity() {
 
     fun update(name: String, email: String, password: String, refreshToken: String?) {
         this.name = name

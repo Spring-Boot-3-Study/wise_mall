@@ -1,8 +1,8 @@
-package com.wise.mall.v1.product.application.port.`in`
+package com.wisemall.monolithic.v1.product.application.port.`in`
 
-import com.wise.mall.v1.product.application.port.`in`.command.ApprovalAllowProductCommand
-import com.wise.mall.v1.product.application.port.`in`.command.ApprovalDenyProductCommand
-import com.wise.mall.v1.product.application.port.`in`.command.ApprovalRequestProductCommand
+import com.wisemall.monolithic.v1.product.application.port.`in`.command.ApprovalAllowProductCommand
+import com.wisemall.monolithic.v1.product.application.port.`in`.command.ApprovalDenyProductCommand
+import com.wisemall.monolithic.v1.product.application.port.`in`.command.ApprovalRequestProductCommand
 
 interface ApprovalProductUseCase {
 

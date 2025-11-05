@@ -1,4 +1,4 @@
-package com.wise.mall.v1.product.application.domain.model
+package com.wisemall.monolithic.v1.product.application.domain.model
 
 import java.time.LocalDateTime
 

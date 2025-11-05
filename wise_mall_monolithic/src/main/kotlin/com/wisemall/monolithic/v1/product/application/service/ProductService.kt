@@ -1,15 +1,15 @@
-package com.wise.mall.v1.product.application.service
+package com.wisemall.monolithic.v1.product.application.service
 
-import com.wise.mall.v1.product.application.domain.model.Product
-import com.wise.mall.v1.product.application.exception.InvalidPriceException
-import com.wise.mall.v1.product.application.exception.InvalidStateException
-import com.wise.mall.v1.product.application.port.`in`.ApprovalProductUseCase
-import com.wise.mall.v1.product.application.port.`in`.ProductUseCase
-import com.wise.mall.v1.product.application.port.`in`.command.*
-import com.wise.mall.v1.product.application.port.out.ProductPersistPort
-import com.wise.mall.v1.product.application.port.out.ProductReadPort
-import com.wise.mall.v1.product.application.vo.CreateProductVo
-import com.wise.mall.v1.product.application.vo.UpdateProductVo
+import com.wisemall.monolithic.v1.product.application.domain.model.Product
+import com.wisemall.monolithic.v1.product.application.exception.InvalidPriceException
+import com.wisemall.monolithic.v1.product.application.exception.InvalidStateException
+import com.wisemall.monolithic.v1.product.application.port.`in`.ApprovalProductUseCase
+import com.wisemall.monolithic.v1.product.application.port.`in`.ProductUseCase
+import com.wisemall.monolithic.v1.product.application.port.`in`.command.*
+import com.wisemall.monolithic.v1.product.application.port.out.ProductPersistPort
+import com.wisemall.monolithic.v1.product.application.port.out.ProductReadPort
+import com.wisemall.monolithic.v1.product.application.vo.CreateProductVo
+import com.wisemall.monolithic.v1.product.application.vo.UpdateProductVo
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
