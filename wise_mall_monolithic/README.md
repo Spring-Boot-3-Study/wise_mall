@@ -2,7 +2,7 @@
 
 현재 레포지토리에 정의된 주요 HTTP 엔드포인트를 다음 표에 정리했습니다.
 
-| HTTP Method | URL | API 설명 |
+| Method | URL | Description |
 | --- | --- | --- |
 | POST | /account/join | 회원 가입 요청을 처리하고 계정을 생성합니다. |
 | POST | /account/login | 이메일과 비밀번호로 로그인하여 액세스/리프레시 토큰을 발급합니다. |
