@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 
 
 @RestController
-@RequestMapping("/api/order")
+@RequestMapping("/api/v1/order")
 class OrderController(
     private val orderService: OrderService
 

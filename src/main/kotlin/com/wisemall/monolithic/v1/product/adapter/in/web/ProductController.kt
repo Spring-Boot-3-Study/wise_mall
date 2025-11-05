@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*
  * Product RestController
  */
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/v1/product")
 class ProductController(
     private val approvalProductUseCase: ApprovalProductUseCase,
     private val productUseCase: ProductUseCase,

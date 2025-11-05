@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/api/v1/account")
 class AccountController(
     private val accountAuthUseCase: AccountAuthUseCase,
 ) {
