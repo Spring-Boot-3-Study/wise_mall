@@ -6,7 +6,7 @@ import com.wisemall.monolithic.v1.order.core.enums.OrderStatus
 
 data class OrderDetailsResponse(
     val orderId: Long,
-    val accountId: String,
+    val accountId: Long,
     val address: Address,
     val orderItems:List<OrderItem>,
     val status: OrderStatus,

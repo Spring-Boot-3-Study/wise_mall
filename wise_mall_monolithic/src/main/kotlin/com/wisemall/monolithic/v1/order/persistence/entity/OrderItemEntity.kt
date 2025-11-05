@@ -1,19 +1,18 @@
-package com.wisemall.monolithic.v1.order.adapter.out.persistence.entity
+package com.wisemall.monolithic.v1.order.persistence.entity
 
 import com.wisemall.monolithic.v1.global.entity.BaseEntity
-import com.wisemall.monolithic.v1.order.persistence.entity.OrderEntity
 import com.wisemall.monolithic.v1.product.adapter.out.persistence.entity.ProductEntity
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
 
 @Entity
-@Table(name = "order_items")
+@Table(name = "order_item")
 @EntityListeners(AuditingEntityListener::class)
 class OrderItemEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val orderItemId: Long? = null,
+    val id: Long? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")

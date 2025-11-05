@@ -1,7 +1,7 @@
 package com.wisemall.monolithic.v1.order.core.usecase
 
-import com.wisemall.monolithic.v1.order.adapter.out.OrderMapper
-import com.wisemall.monolithic.v1.order.adapter.out.persistence.entity.OrderItemEntity
+import com.wisemall.monolithic.v1.order.persistence.mapper.OrderMapper
+import com.wisemall.monolithic.v1.order.persistence.entity.OrderItemEntity
 import com.wisemall.monolithic.v1.order.api.dto.OrderToCreate
 import com.wisemall.monolithic.v1.order.core.domain.Order
 import com.wisemall.monolithic.v1.order.persistence.repository.OrderItemJpaRepository
@@ -35,7 +35,7 @@ class OrderCreateUseCase (
             total += subtotal
 
             OrderItemEntity(
-                orderItemId = null,
+                id = null,
                 order = saved,
                 product = product,
                 price = product.price,
@@ -44,7 +44,7 @@ class OrderCreateUseCase (
             )
         }.forEach { item ->  orderItemRepository.save(item) }
 
-        saved.totalPrice = total
+        saved.amount = total
 
         return orderMapper.toDomain(saved)
     }

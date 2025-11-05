@@ -1,10 +1,11 @@
-package com.wisemall.monolithic.v1.order.adapter.`in`.web.dto.request
+package com.wisemall.monolithic.v1.order.api.dto.request
 
 import com.wisemall.monolithic.v1.global.vo.Address
+import com.wisemall.monolithic.v1.order.adapter.`in`.web.dto.request.OrderItemRequest
 import com.wisemall.monolithic.v1.order.api.dto.OrderCreateCommand
 
 data class OrderCreateRequest(
-    val accountId: String,
+    val accountId: Long,
     val orderItem: List<OrderItemRequest>,
     val address: Address,
 ) {

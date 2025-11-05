@@ -6,12 +6,12 @@ import java.time.LocalDateTime
 
 class Order(
     val orderId: Long,
-    val accountId: String,
+    val accountId: Long,
     val address: Address,
-    status: OrderStatus,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
-    val totalPrice: Int,
+    val amount: Int,
+    status: OrderStatus,
 ) {
 
     var status = status

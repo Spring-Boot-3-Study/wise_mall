@@ -1,4 +1,4 @@
-package com.wisemall.monolithic.v1.order.adapter.out
+package com.wisemall.monolithic.v1.order.persistence.mapper
 
 import com.wisemall.monolithic.v1.order.api.dto.OrderToCreate
 import com.wisemall.monolithic.v1.order.core.domain.Order
@@ -15,7 +15,7 @@ class OrderMapper {
             address = orderEntity.address,
             status = orderEntity.status,
             accountId = orderEntity.accountId,
-            totalPrice = orderEntity.totalPrice,
+            amount = orderEntity.amount,
             createdAt = orderEntity.createdAt!!,
             updatedAt = orderEntity.updatedAt!!,
         )
@@ -23,7 +23,7 @@ class OrderMapper {
 
     fun toNewEntity(orderToCreate: OrderToCreate): OrderEntity {
         return OrderEntity (
-            totalPrice = 0,
+            amount = 0,
             status = OrderStatus.PENDING,
             accountId = orderToCreate.accountId,
             address = orderToCreate.address,

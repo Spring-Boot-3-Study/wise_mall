@@ -13,12 +13,13 @@ class OrderEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
-    val accountId: String,
+
+    val accountId: Long,
 
     @Embedded
     val address: Address,
 
-    var totalPrice: Int,
+    var amount: Int,
 
     @Enumerated(EnumType.STRING)
     val status: OrderStatus

@@ -1,6 +1,6 @@
-package com.wisemall.monolithic.v1.order.adapter.out
+package com.wisemall.monolithic.v1.order.persistence.mapper
 
-import com.wisemall.monolithic.v1.order.adapter.out.persistence.entity.OrderItemEntity
+import com.wisemall.monolithic.v1.order.persistence.entity.OrderItemEntity
 import com.wisemall.monolithic.v1.order.core.domain.OrderItem
 import com.wisemall.monolithic.v1.product.application.domain.model.Product
 import org.springframework.stereotype.Component

@@ -35,7 +35,7 @@ class OrderService(
             address = order.address,
             status = order.status,
             orderItems = orderItems,
-            totalPrice = order.totalPrice,
+            totalPrice = order.amount,
         )
 
     }
@@ -49,7 +49,7 @@ class OrderService(
             address = order.address,
             status = order.status,
             orderItems = orderItems,
-            totalPrice = order.totalPrice,
+            totalPrice = order.amount,
         )
     }
 

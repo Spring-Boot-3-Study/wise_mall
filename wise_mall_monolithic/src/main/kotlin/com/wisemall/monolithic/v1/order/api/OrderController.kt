@@ -1,6 +1,6 @@
 package com.wisemall.monolithic.v1.order.api
 
-import com.wisemall.monolithic.v1.order.adapter.`in`.web.dto.request.OrderCreateRequest
+import com.wisemall.monolithic.v1.order.api.dto.request.OrderCreateRequest
 import com.wisemall.monolithic.v1.order.api.dto.response.OrderDetailsResponse
 import com.wisemall.monolithic.v1.order.core.service.OrderService
 import org.springframework.http.HttpStatus
