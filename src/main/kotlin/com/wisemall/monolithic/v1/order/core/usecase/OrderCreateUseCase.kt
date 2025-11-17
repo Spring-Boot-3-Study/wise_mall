@@ -6,7 +6,7 @@ import com.wisemall.monolithic.v1.order.api.dto.OrderToCreate
 import com.wisemall.monolithic.v1.order.core.domain.Order
 import com.wisemall.monolithic.v1.order.persistence.repository.OrderItemJpaRepository
 import com.wisemall.monolithic.v1.order.persistence.repository.OrderJpaRepository
-import com.wisemall.monolithic.v1.product.adapter.out.persistence.repository.ProductRepository
+import com.wisemall.monolithic.v1.product.repository.ProductRepository
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 import kotlin.jvm.optionals.getOrNull

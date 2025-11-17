@@ -1,6 +1,6 @@
 package com.wisemall.monolithic.v1.order.core.domain
 
-import com.wisemall.monolithic.v1.product.application.domain.model.Product
+import com.wisemall.monolithic.v1.product.service.vo.Product
 
 
 data class OrderItem(

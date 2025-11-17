@@ -1,7 +1,7 @@
 package com.wisemall.monolithic.v1.order.persistence.entity
 
 import com.wisemall.monolithic.v1.global.entity.BaseEntity
-import com.wisemall.monolithic.v1.product.adapter.out.persistence.entity.ProductEntity
+import com.wisemall.monolithic.v1.product.repository.entity.ProductEntity
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
