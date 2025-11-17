@@ -1,11 +1,11 @@
 package com.wisemall.monolithic.v1.order.core.usecase
 
-import com.wisemall.monolithic.v1.order.persistence.mapper.OrderMapper
-import com.wisemall.monolithic.v1.order.persistence.entity.OrderItemEntity
 import com.wisemall.monolithic.v1.order.api.dto.OrderToCreate
 import com.wisemall.monolithic.v1.order.core.domain.Order
-import com.wisemall.monolithic.v1.order.persistence.repository.OrderItemJpaRepository
-import com.wisemall.monolithic.v1.order.persistence.repository.OrderJpaRepository
+import com.wisemall.monolithic.v1.order.storage.entity.OrderItemEntity
+import com.wisemall.monolithic.v1.order.storage.mapper.OrderMapper
+import com.wisemall.monolithic.v1.order.storage.repository.OrderItemRepository
+import com.wisemall.monolithic.v1.order.storage.repository.OrderRepository
 import com.wisemall.monolithic.v1.product.adapter.out.persistence.repository.ProductRepository
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
@@ -13,8 +13,8 @@ import kotlin.jvm.optionals.getOrNull
 
 @Service
 class OrderCreateUseCase (
-    private val orderRepository: OrderJpaRepository,
-    private val orderItemRepository: OrderItemJpaRepository,
+    private val orderRepository: OrderRepository,
+    private val orderItemRepository: OrderItemRepository,
     private val productRepository: ProductRepository,
     private val orderMapper: OrderMapper,
 ) {

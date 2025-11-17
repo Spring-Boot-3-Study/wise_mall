@@ -1,19 +1,19 @@
 package com.wisemall.monolithic.v1.order.core.usecase
 
-import com.wisemall.monolithic.v1.order.persistence.mapper.OrderItemMapper
-import com.wisemall.monolithic.v1.order.persistence.mapper.OrderMapper
 import com.wisemall.monolithic.v1.order.core.domain.Order
 import com.wisemall.monolithic.v1.order.core.domain.OrderItem
-import com.wisemall.monolithic.v1.order.domain.exception.OrderNotFoundException
-import com.wisemall.monolithic.v1.order.persistence.repository.OrderItemJpaRepository
-import com.wisemall.monolithic.v1.order.persistence.repository.OrderJpaRepository
+import com.wisemall.monolithic.v1.order.core.exception.OrderNotFoundException
+import com.wisemall.monolithic.v1.order.storage.mapper.OrderItemMapper
+import com.wisemall.monolithic.v1.order.storage.mapper.OrderMapper
+import com.wisemall.monolithic.v1.order.storage.repository.OrderItemRepository
+import com.wisemall.monolithic.v1.order.storage.repository.OrderRepository
 import org.springframework.stereotype.Component
 import kotlin.jvm.optionals.getOrElse
 
 @Component
 class OrderFinder (
-    private val orderRepository: OrderJpaRepository,
-    private val orderItemRepository: OrderItemJpaRepository,
+    private val orderRepository: OrderRepository,
+    private val orderItemRepository: OrderItemRepository,
     private val orderMapper: OrderMapper,
     private val orderItemMapper: OrderItemMapper
 ) {

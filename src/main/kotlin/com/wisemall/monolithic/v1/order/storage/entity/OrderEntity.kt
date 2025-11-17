@@ -1,8 +1,8 @@
-package com.wisemall.monolithic.v1.order.persistence.entity
+package com.wisemall.monolithic.v1.order.storage.entity
 
 import com.wisemall.monolithic.v1.global.entity.BaseEntity
 import com.wisemall.monolithic.v1.global.vo.Address
-import com.wisemall.monolithic.v1.order.core.enums.OrderStatus
+import com.wisemall.monolithic.v1.global.enums.OrderStatus
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 

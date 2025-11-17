@@ -1,4 +1,4 @@
-package com.wisemall.monolithic.v1.order.domain.exception
+package com.wisemall.monolithic.v1.order.core.exception
 
 import com.wisemall.monolithic.v1.global.exception.ErrorCode
 

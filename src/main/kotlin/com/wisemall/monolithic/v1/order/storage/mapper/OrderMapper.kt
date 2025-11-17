@@ -1,9 +1,9 @@
-package com.wisemall.monolithic.v1.order.persistence.mapper
+package com.wisemall.monolithic.v1.order.storage.mapper
 
 import com.wisemall.monolithic.v1.order.api.dto.OrderToCreate
 import com.wisemall.monolithic.v1.order.core.domain.Order
-import com.wisemall.monolithic.v1.order.core.enums.OrderStatus
-import com.wisemall.monolithic.v1.order.persistence.entity.OrderEntity
+import com.wisemall.monolithic.v1.global.enums.OrderStatus
+import com.wisemall.monolithic.v1.order.storage.entity.OrderEntity
 import org.springframework.stereotype.Component
 
 @Component
@@ -24,7 +24,7 @@ class OrderMapper {
     fun toNewEntity(orderToCreate: OrderToCreate): OrderEntity {
         return OrderEntity (
             amount = 0,
-            status = OrderStatus.PENDING,
+            status = OrderStatus.CREATED,
             accountId = orderToCreate.accountId,
             address = orderToCreate.address,
         )

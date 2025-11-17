@@ -1,7 +1,7 @@
 package com.wisemall.monolithic.v1.order.core.domain
 
 import com.wisemall.monolithic.v1.global.vo.Address
-import com.wisemall.monolithic.v1.order.core.enums.OrderStatus
+import com.wisemall.monolithic.v1.global.enums.OrderStatus
 import java.time.LocalDateTime
 
 class Order(
@@ -16,7 +16,6 @@ class Order(
 
     var status = status
         private set
-
 
     fun updateOrderStatus(status: OrderStatus) {
         this.status = status

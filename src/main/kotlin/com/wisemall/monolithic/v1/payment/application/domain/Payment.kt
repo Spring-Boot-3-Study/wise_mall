@@ -1,6 +1,6 @@
 package com.wisemall.monolithic.v1.payment.application.domain
 
-import com.wisemall.monolithic.v1.payment.application.enums.PaymentStatus
+import com.wisemall.monolithic.v1.global.enums.PaymentStatus
 import com.wisemall.monolithic.v1.payment.application.enums.PaymentType
 
 class Payment (

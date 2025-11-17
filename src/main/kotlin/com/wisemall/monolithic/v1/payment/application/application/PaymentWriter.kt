@@ -1,9 +1,8 @@
 package com.wisemall.monolithic.v1.payment.application.application
 
 import com.wisemall.monolithic.v1.payment.application.domain.Payment
-import com.wisemall.monolithic.v1.payment.application.enums.PaymentStatus
-import com.wisemall.monolithic.v1.payment.persistance.mapper.PaymentEntityMapper
-import com.wisemall.monolithic.v1.payment.persistance.repository.PaymentJpaRepository
+import com.wisemall.monolithic.v1.payment.storage.mapper.PaymentEntityMapper
+import com.wisemall.monolithic.v1.payment.storage.repository.PaymentJpaRepository
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Component
 
