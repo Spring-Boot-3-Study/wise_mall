@@ -1,6 +1,6 @@
-package com.wisemall.monolithic.v1.payment.persistance.repository
+package com.wisemall.monolithic.v1.payment.storage.repository
 
-import com.wisemall.monolithic.v1.payment.persistance.entity.PaymentEntity
+import com.wisemall.monolithic.v1.payment.storage.entity.PaymentEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

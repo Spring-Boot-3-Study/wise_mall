@@ -1,16 +1,9 @@
-package com.wisemall.monolithic.v1.payment.persistance.entity
+package com.wisemall.monolithic.v1.payment.storage.entity
 
 import com.wisemall.monolithic.v1.global.entity.BaseEntity
-import com.wisemall.monolithic.v1.payment.application.enums.PaymentStatus
+import com.wisemall.monolithic.v1.global.enums.PaymentStatus
 import com.wisemall.monolithic.v1.payment.application.enums.PaymentType
-import jakarta.persistence.Entity
-import jakarta.persistence.EntityListeners
-import jakarta.persistence.EnumType
-import jakarta.persistence.Enumerated
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
 @Entity

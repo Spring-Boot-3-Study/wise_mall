@@ -1,4 +1,4 @@
-package com.wisemall.monolithic.v1.order.persistence.entity
+package com.wisemall.monolithic.v1.order.storage.entity
 
 import com.wisemall.monolithic.v1.global.entity.BaseEntity
 import com.wisemall.monolithic.v1.product.adapter.out.persistence.entity.ProductEntity

@@ -1,7 +1,7 @@
-package com.wisemall.monolithic.v1.payment.persistance.mapper
+package com.wisemall.monolithic.v1.payment.storage.mapper
 
 import com.wisemall.monolithic.v1.payment.application.domain.Payment
-import com.wisemall.monolithic.v1.payment.persistance.entity.PaymentEntity
+import com.wisemall.monolithic.v1.payment.storage.entity.PaymentEntity
 import org.springframework.stereotype.Component
 
 @Component
